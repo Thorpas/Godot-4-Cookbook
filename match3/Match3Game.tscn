@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bidvwtaq80bqn"]
+
+[ext_resource type="Script" path="res://match3/Match3Game.gd" id="1_kovcv"]
+[node name="Match3Game" type="Node2D"]
+script = ExtResource("1_kovcv")
+
+[node name="Return" type="Button" parent="."]
+custom_minimum_size = Vector2(160, 90)
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Return"
+
+[connection signal="button_up" from="Return" to="." method="_on_exit_button_up"]

@@ -25,7 +25,7 @@ columns = 8
 custom_minimum_size = Vector2(160, 90)
 layout_mode = 2
 text = "Match 3
-V0.6"
+V0.8"
 
 [node name="Quit" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(160, 90)

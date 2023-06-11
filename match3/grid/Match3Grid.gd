@@ -43,54 +43,41 @@ func _check_matches(pieces:Array):
 		var _coordinates:Vector2i = _local_to_grid(_piece.get_position())
 		var _column:int = _coordinates.x
 		var _row:int = _coordinates.y
-		print("Color: " + _piece.get_color() + "@" + str(_coordinates))
 		# Horizontal
 		if _check_coordinates_valid(_column-1, _row) and _piece.check_match(get_piece(_column-1, _row)):# -?P--
 			if _check_coordinates_valid(_column-2, _row) and _piece.check_match(get_piece(_column-2, _row)):# ?OP--
 				if _check_coordinates_valid(_column+1, _row) and _piece.check_match(get_piece(_column+1, _row)):# OOP?-
-					if _check_coordinates_valid(_column+1, _row) and _piece.check_match(get_piece(_column+1, _row)):# OOPO?
-						print(_piece.get_color() + " H 2P2")
+					if _check_coordinates_valid(_column+2, _row) and _piece.check_match(get_piece(_column+2, _row)):# OOPO?
 						_add_match_to_queue(_coordinates, MATCH_H_2P2)
 					else:# OOPOX
-						print(_piece.get_color() + " H 2P1")
 						_add_match_to_queue(_coordinates, MATCH_H_2P1)
 				else:# OOPX-
-					print(_piece.get_color() + " H 2P0")
 					_add_match_to_queue(_coordinates, MATCH_H_2P0)
 			elif _check_coordinates_valid(_column+1, _row) and _piece.check_match(get_piece(_column+1, _row)):# XOP?-
 				if _check_coordinates_valid(_column+2, _row) and _piece.check_match(get_piece(_column+2, _row)):# XOPO?
-					print(_piece.get_color() + " H 1P2")
 					_add_match_to_queue(_coordinates, MATCH_H_1P2)
 				else:# XOPOX
-					print(_piece.get_color() + " H 1P1")
 					_add_match_to_queue(_coordinates, MATCH_H_1P1)
 		elif _check_coordinates_valid(_column+1, _row) and _piece.check_match(get_piece(_column+1, _row)):# -XP?-
 			if _check_coordinates_valid(_column+2, _row) and _piece.check_match(get_piece(_column+2, _row)):# -XPO?
-				print(_piece.get_color() + " H 0P2")
 				_add_match_to_queue(_coordinates, MATCH_H_0P2)
 		# Vertical
 		if _check_coordinates_valid(_column, _row-1) and _piece.check_match(get_piece(_column, _row-1)):# -?P--
 			if _check_coordinates_valid(_column, _row-2) and _piece.check_match(get_piece(_column, _row-2)):# ?OP--
 				if _check_coordinates_valid(_column, _row+1) and _piece.check_match(get_piece(_column, _row+1)):# OOP?-
-					if _check_coordinates_valid(_column, _row+1) and _piece.check_match(get_piece(_column, _row+1)):# OOPO?
-						print(_piece.get_color() + " V 2P2")
+					if _check_coordinates_valid(_column, _row+2) and _piece.check_match(get_piece(_column, _row+2)):# OOPO?
 						_add_match_to_queue(_coordinates, MATCH_V_2P2)
 					else:# OOPOX
-						print(_piece.get_color() + " V 2P2")
 						_add_match_to_queue(_coordinates, MATCH_V_2P1)
 				else:# OOPX-
-					print(_piece.get_color() + " V 2P0")
 					_add_match_to_queue(_coordinates, MATCH_V_2P0)
 			elif _check_coordinates_valid(_column, _row+1) and _piece.check_match(get_piece(_column, _row+1)):# XOP?-
 				if _check_coordinates_valid(_column, _row+2) and _piece.check_match(get_piece(_column, _row+2)):# XOPO?
-					print(_piece.get_color() + " V 1P2")
 					_add_match_to_queue(_coordinates, MATCH_V_1P2)
 				else:# XOPOX
-					print(_piece.get_color() + " V 1P1")
 					_add_match_to_queue(_coordinates, MATCH_V_1P1)
 		elif _check_coordinates_valid(_column, _row+1) and _piece.check_match(get_piece(_column, _row+1)):# -XP?-
 			if _check_coordinates_valid(_column, _row+2) and _piece.check_match(get_piece(_column, _row+2)):# -XPO?
-				print(_piece.get_color() + " V 0P2")
 				_add_match_to_queue(_coordinates, MATCH_V_0P2)
 func _check_match_on_creation(column:int, row:int, piece:Match3Piece)->bool:
 	if row > 1 and get_piece(column, row-1).check_match(piece) and get_piece(column, row-2).check_match(piece):
@@ -109,7 +96,6 @@ func _add_match_to_queue(origin:Vector2i, coordinates:Array):
 	var _match:Array = []
 	for _coordinates in coordinates:
 		_match.append(origin + _coordinates)
-	print(_match)
 	_matchQueue.append(_match)
 func _resolve_matches():
 	var _piecesMatched:Array = []
@@ -147,7 +133,6 @@ func initialize_grid(columns:int, rows:int, colors:Array):
 			while _check_match_on_creation(_c, _r, _p):
 				_p = _create_piece(_pieceColors.pick_random())
 			_pieces[_c].append(_p)
-			_p.set_coordinates(_c, _r)
 			_p.connect_piece_selected(self)
 			$Pieces.add_child(_p)
 			_p.set_position(_grid_to_local(_c, _r))
@@ -158,7 +143,6 @@ func _check_coordinates_valid(column:int, row:int)->bool:
 func check_piece_selected()->bool:
 	return _pieceSelected != null
 func get_piece(column:int, row:int):
-	print("(" + str(column) + ", " + str(row) + ")")
 	return _pieces[column][row]
 func _select_piece(piece:Match3Piece):
 	if _pieceSelected != null:
@@ -195,9 +179,7 @@ func _swap_pieces(A:Match3Piece, B:Match3Piece):
 #	_tween.tween_property(B, "position", _grid_to_local(_aCoordinates.x, _aCoordinates.y), 1)
 #	await _tween
 	_pieces[_aCoordinates.x][_aCoordinates.y] = B
-	B.set_coordinates(_aCoordinates.x,_aCoordinates.y)
 	_pieces[_bCoordinates.x][_bCoordinates.y] = A
-	A.set_coordinates(_bCoordinates.x,_bCoordinates.y)
 	A.set_position(_grid_to_local(_bCoordinates.x, _bCoordinates.y))
 	B.set_position(_grid_to_local(_aCoordinates.x, _aCoordinates.y))
 ### Position

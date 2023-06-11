@@ -30,31 +30,22 @@ func initialize_piece(color:StringName):
 			set_modulate(Color.YELLOW)
 		&"Red":
 			set_modulate(Color.RED)
-	_update_label()
 func on_match():
-	pass
+	_color = &"Gray"
+	set_modulate(Color.DIM_GRAY)
 ### Color
 func get_color()->StringName:
 	return _color
 func check_match(other:Match3Piece)->bool:
 	if _color == other.get_color():
-		print(_color + " == " + other.get_color())
 		return true
 	return false
-### Coordinates
-func set_coordinates(column:int, row:int):
-	_column = column
-	_row = row
-	_update_label()
+### Selection
 func set_selected(selected:bool):
 	if selected:
 		set_rotation_degrees(180)
 	else:
 		set_rotation_degrees(0)
-
-## Label
-func _update_label():
-	$Label.set_text(_color + "(" + str(_column) + "/" + str(_row) + ")")
 
 ## Button
 func _on_button_down():

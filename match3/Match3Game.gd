@@ -10,7 +10,7 @@ var _scoreRed:int = 0
 
 ## Godot
 func _ready():
-	$Match3Grid.initialize_grid(3,3,[&"Blue",&"Green",&"Red"])
+	$Match3Grid.initialize_grid(10,5,[&"Blue",&"Green",&"Red"])
 	_update_score(0 ,0 ,0)
 func _on_return_button_up():
 	get_tree().change_scene_to_packed(load("res://Start.tscn"))

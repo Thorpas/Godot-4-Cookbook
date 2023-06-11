@@ -46,6 +46,11 @@ func set_coordinates(column:int, row:int):
 	_column = column
 	_row = row
 	_update_label()
+func set_selected(selected:bool):
+	if selected:
+		set_rotation_degrees(180)
+	else:
+		set_rotation_degrees(0)
 
 ## Label
 func _update_label():

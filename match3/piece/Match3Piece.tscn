@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://l7otcw1xd581" path="res://icon.svg" id="1_isi3o"]
 
 [node name="Match3Piece" type="TextureButton"]
+pivot_offset = Vector2(64, 64)
 action_mode = 0
 texture_normal = ExtResource("1_isi3o")
 script = ExtResource("1_ep50m")

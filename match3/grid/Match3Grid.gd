@@ -6,18 +6,18 @@ signal piece_selected(color, solumn, row)
 signal score_gained(blue, green, red)
 
 # Constants
-const MATCH_H_0P2 = [Vector2(0,0), Vector2(+1,0), Vector2(+2,0)]
-const MATCH_H_1P1 = [Vector2(-1,0), Vector2(0,0), Vector2(+1,0)]
-const MATCH_H_2P0 = [Vector2(-2,0), Vector2(-1,0), Vector2(0,0)]
-const MATCH_V_0P2 = [Vector2(0,0), Vector2(0,+1), Vector2(0,+2)]
-const MATCH_V_1P1 = [Vector2(0,-1), Vector2(0,0), Vector2(0,+1)]
-const MATCH_V_2P0 = [Vector2(0,-2), Vector2(0,-1), Vector2(0,0)]
-const MATCH_H_1P2 = [Vector2(-1,0), Vector2(0,0), Vector2(+1,0), Vector2(+2,0)]
-const MATCH_H_2P1 = [Vector2(-2,0), Vector2(-1,0), Vector2(0,0), Vector2(+1,0)]
-const MATCH_V_1P2 = [Vector2(0,-1), Vector2(0,0), Vector2(0,+1), Vector2(0,+2)]
-const MATCH_V_2P1 = [Vector2(0,-2), Vector2(0,-1), Vector2(0,0), Vector2(0,+1)]
-const MATCH_H_2P2 = [Vector2(-2,0), Vector2(-1,0), Vector2(0,0), Vector2(+1,0), Vector2(+2,0)]
-const MATCH_V_2P2 = [Vector2(0,-2), Vector2(0,-1), Vector2(0,0), Vector2(0,+1), Vector2(0,+2)]
+const MATCH_H_0P2 = [Vector2i(0,0), Vector2i(+1,0), Vector2i(+2,0)]
+const MATCH_H_1P1 = [Vector2i(-1,0), Vector2i(0,0), Vector2i(+1,0)]
+const MATCH_H_2P0 = [Vector2i(-2,0), Vector2i(-1,0), Vector2i(0,0)]
+const MATCH_V_0P2 = [Vector2i(0,0), Vector2i(0,+1), Vector2i(0,+2)]
+const MATCH_V_1P1 = [Vector2i(0,-1), Vector2i(0,0), Vector2i(0,+1)]
+const MATCH_V_2P0 = [Vector2i(0,-2), Vector2i(0,-1), Vector2i(0,0)]
+const MATCH_H_1P2 = [Vector2i(-1,0), Vector2i(0,0), Vector2i(+1,0), Vector2i(+2,0)]
+const MATCH_H_2P1 = [Vector2i(-2,0), Vector2i(-1,0), Vector2i(0,0), Vector2i(+1,0)]
+const MATCH_V_1P2 = [Vector2i(0,-1), Vector2i(0,0), Vector2i(0,+1), Vector2i(0,+2)]
+const MATCH_V_2P1 = [Vector2i(0,-2), Vector2i(0,-1), Vector2i(0,0), Vector2i(0,+1)]
+const MATCH_H_2P2 = [Vector2i(-2,0), Vector2i(-1,0), Vector2i(0,0), Vector2i(+1,0), Vector2i(+2,0)]
+const MATCH_V_2P2 = [Vector2i(0,-2), Vector2i(0,-1), Vector2i(0,0), Vector2i(0,+1), Vector2i(0,+2)]
 
 # Variables
 
@@ -40,7 +40,7 @@ var _pieceHeight:float = 128
 ## Match
 func _check_matches(pieces:Array):
 	for _piece in pieces:
-		var _coordinates:Vector2 = _local_to_grid(_piece.get_position())
+		var _coordinates:Vector2i = _local_to_grid(_piece.get_position())
 		var _column:int = _coordinates.x
 		var _row:int = _coordinates.y
 		print("Color: " + _piece.get_color() + "@" + str(_coordinates))
@@ -101,9 +101,11 @@ func _check_match_on_creation(column:int, row:int, piece:Match3Piece)->bool:
 func check_move_valid(A:Match3Piece, B:Match3Piece):
 	if A.check_match(B):
 		return false
+	if not (_local_to_grid(A.get_position()) - _local_to_grid(B.get_position())) in [Vector2i(0,-1), Vector2i(0,1), Vector2i(-1,0), Vector2i(1,0)]:
+		return false
 	return true
 ### Queue
-func _add_match_to_queue(origin:Vector2, coordinates:Array):
+func _add_match_to_queue(origin:Vector2i, coordinates:Array):
 	var _match:Array = []
 	for _coordinates in coordinates:
 		_match.append(origin + _coordinates)
@@ -159,8 +161,11 @@ func get_piece(column:int, row:int):
 	print("(" + str(column) + ", " + str(row) + ")")
 	return _pieces[column][row]
 func _select_piece(piece:Match3Piece):
+	if _pieceSelected != null:
+		_pieceSelected.set_selected(false)
 	_pieceSelected = piece
 	if _pieceSelected != null:
+		_pieceSelected.set_selected(true)
 		emit_signal("piece_selected", piece.get_color(), _local_to_grid(piece.get_position()).x, _local_to_grid(piece.get_position()).y)
 	else:
 		emit_signal("piece_selected", &"None", -1, -1)
@@ -198,5 +203,5 @@ func _swap_pieces(A:Match3Piece, B:Match3Piece):
 ### Position
 func _grid_to_local(column:int, row:int)->Vector2:
 	return Vector2(column * _pieceWidth, row * _pieceHeight)
-func _local_to_grid(local:Vector2)->Vector2:
-	return Vector2(local.x / _pieceWidth, local.y / _pieceHeight)
+func _local_to_grid(local:Vector2)->Vector2i:
+	return Vector2i(int(local.x / _pieceWidth), int(local.y / _pieceHeight))

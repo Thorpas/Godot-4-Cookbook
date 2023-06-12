@@ -27,10 +27,17 @@ layout_mode = 2
 text = "Match 3
 V0.8"
 
+[node name="Screen2D" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(160, 90)
+layout_mode = 2
+text = "2D Screen
+V0.1"
+
 [node name="Quit" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(160, 90)
 layout_mode = 2
 text = "Quit"
 
 [connection signal="button_up" from="GridContainer/Match3" to="." method="_on_match_3_button_up"]
+[connection signal="button_up" from="GridContainer/Screen2D" to="." method="_on_screen_2D_button_up"]
 [connection signal="button_up" from="GridContainer/Quit" to="." method="_on_quit_button_up"]

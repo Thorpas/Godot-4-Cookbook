@@ -1,0 +1,7 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbnfx8c52ue3k"]
+
+[ext_resource type="Script" path="res://screen/AbstractScreen2D.tres.gd" id="1_n4hob"]
+
+[node name="AbstractScreen2D" type="Node2D"]
+script = ExtResource("1_n4hob")
+

@@ -1,13 +1,7 @@
-[gd_scene format=3 uid="uid://dhal41xt6knrs"]
+[gd_scene load_steps=3 format=3 uid="uid://dk71s53ohbdh5"]
 
-[node name="ShowcaseScreen2D"]
+[ext_resource type="PackedScene" uid="uid://bbnfx8c52ue3k" path="res://screen/AbstractScreen2D.tscn" id="1_yepq5"]
+[ext_resource type="Script" path="res://screen/ShowcaseScreen2D.gd" id="2_ktcd8"]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." index="0"]
-custom_minimum_size = Vector2(1540, 124)
-offset_left = 30.0
-offset_right = 1570.0
-offset_bottom = 124.0
-bbcode_enabled = true
-text = "[font_size=90]Screen Showcase[/font_size]"
-fit_content = true
-
+[node name="ShowcaseScreen2D" instance=ExtResource("1_yepq5")]
+script = ExtResource("2_ktcd8")

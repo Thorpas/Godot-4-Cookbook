@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://bidvwtaq80bqn"]
 
-[ext_resource type="Script" path="res://match3/Match3Game.gd" id="1_kovcv"]
-[ext_resource type="PackedScene" uid="uid://cl63jew1kh535" path="res://match3/grid/Match3Grid.tscn" id="2_yegow"]
+[ext_resource type="Script" path="res://match3/Match3Showcase.gd" id="1_42huj"]
+[ext_resource type="PackedScene" uid="uid://cl63jew1kh535" path="res://match3/grid/Match3Grid.tscn" id="2_rrf8v"]
 
 [node name="Match3Game" type="Node2D"]
-script = ExtResource("1_kovcv")
+script = ExtResource("1_42huj")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Title" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(1540, 0)
 offset_left = 30.0
 offset_right = 1570.0
@@ -60,7 +60,7 @@ offset_right = 160.0
 offset_bottom = 900.0
 text = "Return"
 
-[node name="Match3Grid" parent="." instance=ExtResource("2_yegow")]
+[node name="Match3Grid" parent="." instance=ExtResource("2_rrf8v")]
 position = Vector2(240, 135)
 
 [connection signal="button_up" from="Return" to="." method="_on_return_button_up"]

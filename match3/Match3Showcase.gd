@@ -1,7 +1,14 @@
 extends Node2D
-class_name Match3Game
 
 # Variables
+
+## Initialization
+@export_category("Match 3")
+@export var columns:int = 10
+@export var rows:int = 5
+@export var colors:Array = [&"Blue",&"Green",&"Red"]
+
+## Score
 var _scoreBlue:int = 0
 var _scoreGreen:int = 0
 var _scoreRed:int = 0
@@ -10,10 +17,8 @@ var _scoreRed:int = 0
 
 ## Godot
 func _ready():
-	$Match3Grid.initialize_grid(10,5,[&"Blue",&"Green",&"Red"])
+	$Match3Grid.initialize_grid(columns, rows, colors)
 	_update_score(0 ,0 ,0)
-func _on_return_button_up():
-	get_tree().change_scene_to_packed(load("res://Start.tscn"))
 
 ## Interface
 ### Selection
@@ -30,7 +35,6 @@ func _on_piece_selected(color, column, row):
 			_text += "None"
 	_text += "[/font_size][/center]"
 	$VBoxContainer/Selection.set_text(_text)
-	
 ### Score
 func _update_score(blue:int, green:int, red:int):
 	_scoreBlue += blue
@@ -39,3 +43,6 @@ func _update_score(blue:int, green:int, red:int):
 	$VBoxContainer/Blue.set_text("[center][font_size=36][color=blue]" + str(_scoreBlue) + "[/color][/font_size][/center]")
 	$VBoxContainer/Green.set_text("[center][font_size=36][color=green]" + str(_scoreGreen) + "[/color][/font_size][/center]")
 	$VBoxContainer/Red.set_text("[center][font_size=36][color=red]" + str(_scoreRed) + "[/color][/font_size][/center]")
+### Return Button
+func _on_return_button_up():
+	get_tree().change_scene_to_packed(load("res://Start.tscn"))

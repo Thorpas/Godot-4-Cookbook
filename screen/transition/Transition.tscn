@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://vs7e5pe5a8a8"]
 
-[ext_resource type="Script" path="res://screen/transition/TransitionScreen.gd" id="1_ra4gm"]
+[ext_resource type="Script" path="res://screen/transition/Transition.gd" id="1_ra4gm"]
 
 [sub_resource type="Animation" id="Animation_a3ll2"]
 resource_name = "Black"

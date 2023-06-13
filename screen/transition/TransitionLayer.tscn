@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://vs7e5pe5a8a8"]
+[gd_scene load_steps=5 format=3 uid="uid://vs7e5pe5a8a8"]
 
 [ext_resource type="Script" path="res://screen/transition/TransitionLayer.gd" id="1_w1jmk"]
 
@@ -22,6 +22,9 @@ _data = {
 "Black": SubResource("Animation_a3ll2")
 }
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ml5g2"]
+size = Vector2(1600, 900)
+
 [node name="TransitionLayer" type="CanvasLayer"]
 layer = 128
 follow_viewport_enabled = true
@@ -43,3 +46,4 @@ visible = false
 custom_minimum_size = Vector2(1600, 900)
 offset_right = 40.0
 offset_bottom = 40.0
+texture = SubResource("PlaceholderTexture2D_ml5g2")

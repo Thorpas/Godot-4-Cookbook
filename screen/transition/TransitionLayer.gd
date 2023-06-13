@@ -1,5 +1,5 @@
 extends CanvasLayer
-class_name Transition
+class_name TransitionLayer
 
 # Variables
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://vs7e5pe5a8a8"]
+[gd_scene load_steps=6 format=3 uid="uid://vs7e5pe5a8a8"]
 
 [ext_resource type="Script" path="res://screen/transition/TransitionLayer.gd" id="1_w1jmk"]
 
@@ -7,7 +7,7 @@ resource_name = "Black"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Black:color")
+tracks/0/path = NodePath("Color:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -32,8 +32,14 @@ libraries = {
 "": SubResource("AnimationLibrary_y6jiq")
 }
 
-[node name="Black" type="ColorRect" parent="."]
+[node name="Color" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1600, 900)
 offset_right = 40.0
 offset_bottom = 40.0
-color = Color(0, 0, 0, 0)
+color = Color(0, 0, 0, 1)
+
+[node name="Texture" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(1600, 900)
+offset_right = 40.0
+offset_bottom = 40.0

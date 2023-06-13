@@ -4,7 +4,8 @@ class_name AbstractScreen2D
 # Functions
 
 ## Transition
-func transition_from_black():
-	await $Transition.hide_transition(&"Black")
-func transition_into_black():
-	await $Transition.show_transition(&"Black")
+### Color
+func transition_from_color(color:Color, duration:float):
+	await $Transition.hide_color_tween(color, duration)
+func transition_into_color(color:Color, duration:float):
+	await $Transition.show_color_tween(color, duration)

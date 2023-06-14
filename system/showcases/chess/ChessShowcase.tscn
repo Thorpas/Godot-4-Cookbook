@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyu2w4wi1mo8i"]
+
+[ext_resource type="PackedScene" uid="uid://bwc5qk5fsbb1m" path="res://system/showcases/chess/board/ChessBoard.tscn" id="2_2cijm"]
+
+[sub_resource type="GDScript" id="GDScript_xjg2p"]
+script/source = "extends Node2D
+
+func _on_return_button_up():
+	get_tree().change_scene_to_packed(load(\"res://system/Start.tscn\"))
+"
+
+[node name="ChessShowcase" type="Node2D"]
+script = SubResource("GDScript_xjg2p")
+
+[node name="Title" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(1540, 0)
+offset_left = 30.0
+offset_right = 1570.0
+offset_bottom = 124.0
+bbcode_enabled = true
+text = "[font_size=90]Chess[/font_size]"
+fit_content = true
+
+[node name="ChessBoard" parent="." instance=ExtResource("2_2cijm")]
+position = Vector2(160, 135)
+
+[node name="Return" type="Button" parent="."]
+custom_minimum_size = Vector2(160, 90)
+offset_top = 810.0
+offset_right = 160.0
+offset_bottom = 900.0
+text = "Return"
+
+[connection signal="button_up" from="Return" to="." method="_on_return_button_up"]

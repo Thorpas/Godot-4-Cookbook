@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b6emognfyiy71"]
 
-[ext_resource type="Script" path="res://screen/AbstractScreen2D.gd" id="1_tc4h5"]
-[ext_resource type="PackedScene" uid="uid://vs7e5pe5a8a8" path="res://screen/transition/TransitionLayer.tscn" id="2_b7qqp"]
+[ext_resource type="Script" path="res://system/showcases/screen2D/AbstractScreen2D.gd" id="1_tc4h5"]
+[ext_resource type="PackedScene" uid="uid://vs7e5pe5a8a8" path="res://system/showcases/screen2D/transition/TransitionLayer.tscn" id="2_b7qqp"]
 
 [node name="AbstractScreen2D" type="Node2D"]
 script = ExtResource("1_tc4h5")

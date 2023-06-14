@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1i6g3ckul2if"]
+
+[ext_resource type="PackedScene" uid="uid://ose10q3meu8j" path="res://system/ShowcaseScreen.tscn" id="1_iqpdj"]
+[ext_resource type="Script" path="res://system/showcases/screen2D/Screen2DShowcaseScreen.gd" id="2_t4wqp"]
+[ext_resource type="Texture2D" uid="uid://l7otcw1xd581" path="res://data/images/icon.svg" id="3_s4px5"]
+
+[node name="Screen2DShowcaseScreen" instance=ExtResource("1_iqpdj")]
+script = ExtResource("2_t4wqp")
+
+[node name="Title" parent="." index="0"]
+text = "[font_size=90]Screen 2D[/font_size]"
+
+[node name="HBox" type="HBoxContainer" parent="Interface" index="0"]
+custom_minimum_size = Vector2(1540, 0)
+offset_left = 30.0
+offset_top = 135.0
+offset_right = 1570.0
+offset_bottom = 219.0
+
+[node name="VBox" type="VBoxContainer" parent="Interface/HBox" index="0"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Interface/HBox/VBox" index="0"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=27]Transitions"
+fit_content = true
+
+[node name="Red" type="HSlider" parent="Interface/HBox/VBox" index="1"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+
+[node name="Green" type="HSlider" parent="Interface/HBox/VBox" index="2"]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+
+[node name="Blue" type="HSlider" parent="Interface/HBox/VBox" index="3"]
+modulate = Color(0, 0, 1, 1)
+layout_mode = 2
+
+[node name="Color" type="Button" parent="Interface/HBox/VBox" index="4"]
+custom_minimum_size = Vector2(160, 45)
+layout_mode = 2
+text = "Dynamic Color"
+
+[node name="Texture" type="Button" parent="Interface/HBox/VBox" index="5"]
+custom_minimum_size = Vector2(160, 45)
+layout_mode = 2
+text = "Texture"
+
+[node name="Transition" parent="." index="2"]
+visible = false
+showColor = true
+readyTexture = ExtResource("3_s4px5")
+
+[connection signal="button_up" from="Interface/HBox/VBox/Color" to="." method="_on_color_button_up"]
+[connection signal="button_up" from="Interface/HBox/VBox/Texture" to="." method="_on_texture_button_up"]

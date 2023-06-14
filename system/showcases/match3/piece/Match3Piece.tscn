@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bb8sctu6gtr1v"]
 
-[ext_resource type="Script" path="res://match3/piece/Match3Piece.gd" id="1_ep50m"]
-[ext_resource type="Texture2D" uid="uid://l7otcw1xd581" path="res://icon.svg" id="1_isi3o"]
+[ext_resource type="Script" path="res://system/showcases/match3/piece/Match3Piece.gd" id="1_ep50m"]
+[ext_resource type="Texture2D" uid="uid://l7otcw1xd581" path="res://data/images/icon.svg" id="1_isi3o"]
 
 [node name="Match3Piece" type="TextureButton"]
 pivot_offset = Vector2(64, 64)

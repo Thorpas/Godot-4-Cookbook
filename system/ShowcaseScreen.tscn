@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://ose10q3meu8j"]
+
+[ext_resource type="PackedScene" uid="uid://b6emognfyiy71" path="res://system/showcases/screen2D/AbstractScreen2D.tscn" id="1_58rcp"]
+[ext_resource type="Script" path="res://system/ShowcaseScreen.gd" id="2_f43xj"]
+
+[node name="ShowcaseScreen" instance=ExtResource("1_58rcp")]
+script = ExtResource("2_f43xj")
+
+[node name="Title" type="RichTextLabel" parent="." index="0"]
+custom_minimum_size = Vector2(1540, 0)
+offset_left = 30.0
+offset_right = 1570.0
+offset_bottom = 124.0
+bbcode_enabled = true
+text = "[font_size=90]Title[/font_size]"
+fit_content = true
+
+[node name="Return" type="Button" parent="Interface" index="0"]
+custom_minimum_size = Vector2(160, 90)
+offset_left = 1440.0
+offset_top = 810.0
+offset_right = 1600.0
+offset_bottom = 900.0
+text = "Return"
+
+[connection signal="button_up" from="Interface/Return" to="." method="_on_return_button_up"]

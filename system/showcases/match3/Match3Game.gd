@@ -1,11 +1,15 @@
 extends Node2D
+class_name Match3Game
 
 # Variables
 
 ## Initialization
 @export_category("Match 3")
+## Number of columns in the Match 3 Grid.
 @export var columns:int = 10
+## Number of rows in the Match 3 Grid.
 @export var rows:int = 5
+## Possible colors of Match 3 Pieces.
 @export var colors:Array = [&"Blue",&"Green",&"Red"]
 
 ## Score
@@ -43,6 +47,3 @@ func _update_score(blue:int, green:int, red:int):
 	$VBoxContainer/Blue.set_text("[center][font_size=36][color=blue]" + str(_scoreBlue) + "[/color][/font_size][/center]")
 	$VBoxContainer/Green.set_text("[center][font_size=36][color=green]" + str(_scoreGreen) + "[/color][/font_size][/center]")
 	$VBoxContainer/Red.set_text("[center][font_size=36][color=red]" + str(_scoreRed) + "[/color][/font_size][/center]")
-### Return Button
-func _on_return_button_up():
-	get_tree().change_scene_to_packed(load("res://Start.tscn"))

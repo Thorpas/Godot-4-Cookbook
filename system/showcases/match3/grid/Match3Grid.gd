@@ -167,7 +167,7 @@ func on_piece_selected(piece:Match3Piece):
 	else:
 		_select_piece(piece)
 func _create_piece(color:StringName)->Match3Piece:
-	var _piece = load("res://match3/piece/Match3Piece.tscn").instantiate()
+	var _piece = load("res://system/showcases/match3/piece/Match3Piece.tscn").instantiate()
 	_piece.initialize_piece(color)
 	return _piece
 func _swap_pieces(A:Match3Piece, B:Match3Piece):

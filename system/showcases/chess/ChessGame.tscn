@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bewvy70rtho1p"]
+
+[ext_resource type="Script" path="res://system/showcases/chess/ChessGame.gd" id="1_gkwgl"]
+
+[node name="ChessGame" type="Node2D"]
+script = ExtResource("1_gkwgl")

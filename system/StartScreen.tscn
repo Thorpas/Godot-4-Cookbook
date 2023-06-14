@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://drfyelegyp6hb"]
+
+[ext_resource type="PackedScene" uid="uid://b6emognfyiy71" path="res://system/showcases/screen2D/AbstractScreen2D.tscn" id="1_xbh4h"]
+[ext_resource type="Script" path="res://system/StartScreen.gd" id="2_mim2t"]
+[ext_resource type="Texture2D" uid="uid://rlnclwo8njpp" path="res://data/images/github-mark-white.svg" id="3_jig77"]
+
+[node name="StartScreen" instance=ExtResource("1_xbh4h")]
+script = ExtResource("2_mim2t")
+
+[node name="Title" type="RichTextLabel" parent="." index="0"]
+custom_minimum_size = Vector2(1540, 0)
+offset_left = 30.0
+offset_right = 1570.0
+offset_bottom = 124.0
+bbcode_enabled = true
+text = "[font_size=90]Godot 4 Cookbook[/font_size]"
+fit_content = true
+
+[node name="Grid" type="GridContainer" parent="Interface" index="0"]
+custom_minimum_size = Vector2(1540, 0)
+offset_left = 30.0
+offset_top = 135.0
+offset_right = 1570.0
+offset_bottom = 239.0
+columns = 9
+
+[node name="Chess" type="Button" parent="Interface/Grid" index="0"]
+custom_minimum_size = Vector2(160, 90)
+layout_mode = 2
+text = "Chess"
+
+[node name="Match3" type="Button" parent="Interface/Grid" index="1"]
+custom_minimum_size = Vector2(160, 90)
+layout_mode = 2
+text = "Match 3"
+
+[node name="Screen2D" type="Button" parent="Interface/Grid" index="2"]
+custom_minimum_size = Vector2(160, 90)
+layout_mode = 2
+text = "Screen 2D"
+
+[node name="GitHub" type="Button" parent="Interface/Grid" index="3"]
+custom_minimum_size = Vector2(160, 90)
+layout_mode = 2
+text = "GitHub"
+icon = ExtResource("3_jig77")
+icon_alignment = 1
+
+[node name="Quit" type="Button" parent="Interface/Grid" index="4"]
+custom_minimum_size = Vector2(160, 90)
+layout_mode = 2
+text = "Quit"
+
+[connection signal="button_up" from="Interface/Grid/Chess" to="." method="_on_chess_button_up"]
+[connection signal="button_up" from="Interface/Grid/Match3" to="." method="_on_match_3_button_up"]
+[connection signal="button_up" from="Interface/Grid/Screen2D" to="." method="_on_screen_2D_button_up"]
+[connection signal="button_up" from="Interface/Grid/GitHub" to="." method="_on_git_hub_button_up"]
+[connection signal="button_up" from="Interface/Grid/Quit" to="." method="_on_quit_button_up"]

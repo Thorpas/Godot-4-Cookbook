@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://1525knx6bq1j"]
+
+[ext_resource type="PackedScene" uid="uid://ose10q3meu8j" path="res://system/ShowcaseScreen.tscn" id="1_nskvd"]
+[ext_resource type="Script" path="res://system/showcases/checkerboard/CheckerboardShowcaseScreen.gd" id="2_7xiot"]
+[ext_resource type="PackedScene" uid="uid://pqoannn5ld2l" path="res://system/showcases/checkerboard/CheckerboardGame.tscn" id="3_kckld"]
+
+[node name="CheckerboardShowcaseScreen" instance=ExtResource("1_nskvd")]
+script = ExtResource("2_7xiot")
+
+[node name="Title" parent="." index="0"]
+text = "[font_size=90]Checkerboard[/font_size]"
+
+[node name="CheckerboardGame" parent="." index="1" instance=ExtResource("3_kckld")]
+position = Vector2(160, 135)
+
+[node name="VBox" type="VBoxContainer" parent="Interface" index="0"]
+custom_minimum_size = Vector2(160, 800)
+offset_left = 1440.0
+offset_right = 1600.0
+offset_bottom = 800.0
+
+[node name="Chess" type="Button" parent="Interface/VBox" index="0"]
+custom_minimum_size = Vector2(160, 90)
+layout_mode = 2
+text = "Chess
+V0.1"
+
+[node name="Button" type="Button" parent="Interface/VBox" index="1"]
+custom_minimum_size = Vector2(160, 90)
+layout_mode = 2
+text = "Test"
+
+[connection signal="button_up" from="Interface/VBox/Chess" to="." method="_on_chess_button_up"]

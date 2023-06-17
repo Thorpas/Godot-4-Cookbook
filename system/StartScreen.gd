@@ -7,9 +7,9 @@ func _ready():
 	await transition_from_color(Color.BLACK, 0.6)
 
 ## Interface
-func _on_chess_button_up():
+func _on_checkerboard_button_up():
 	await transition_into_color(Color.BLACK, 0.5)
-	get_tree().change_scene_to_packed(load("res://system/showcases/chess/ChessShowcaseScreen.tscn"))
+	get_tree().change_scene_to_packed(load("res://system/showcases/checkerboard/CheckerboardShowcaseScreen.tscn"))
 func _on_match_3_button_up():
 	await transition_into_color(Color.BLACK, 0.5)
 	get_tree().change_scene_to_packed(load("res://system/showcases/match3/Match3ShowcaseScreen.tscn"))

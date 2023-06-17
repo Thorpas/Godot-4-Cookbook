@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://pqoannn5ld2l"]
+
+[ext_resource type="Script" path="res://system/showcases/checkerboard/CheckerboardGame.gd" id="1_5lshh"]
+[ext_resource type="PackedScene" uid="uid://dpyrqxtaody2l" path="res://system/showcases/checkerboard/board/Checkerboard.tscn" id="1_e8lmv"]
+
+[node name="CheckerboardGame" type="Node2D"]
+script = ExtResource("1_5lshh")
+
+[node name="Checkerboard" parent="." instance=ExtResource("1_e8lmv")]

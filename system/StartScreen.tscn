@@ -24,20 +24,23 @@ offset_right = 1570.0
 offset_bottom = 239.0
 columns = 9
 
-[node name="Chess" type="Button" parent="Interface/Grid" index="0"]
+[node name="Checkerboard" type="Button" parent="Interface/Grid" index="0"]
 custom_minimum_size = Vector2(160, 90)
 layout_mode = 2
-text = "Chess"
+text = "Checkerboard
+V0.1"
 
 [node name="Match3" type="Button" parent="Interface/Grid" index="1"]
 custom_minimum_size = Vector2(160, 90)
 layout_mode = 2
-text = "Match 3"
+text = "Match 3
+V0.8.3"
 
 [node name="Screen2D" type="Button" parent="Interface/Grid" index="2"]
 custom_minimum_size = Vector2(160, 90)
 layout_mode = 2
-text = "Screen 2D"
+text = "Screen 2D
+V0.1.5"
 
 [node name="GitHub" type="Button" parent="Interface/Grid" index="3"]
 custom_minimum_size = Vector2(160, 90)
@@ -51,7 +54,7 @@ custom_minimum_size = Vector2(160, 90)
 layout_mode = 2
 text = "Quit"
 
-[connection signal="button_up" from="Interface/Grid/Chess" to="." method="_on_chess_button_up"]
+[connection signal="button_up" from="Interface/Grid/Checkerboard" to="." method="_on_checkerboard_button_up"]
 [connection signal="button_up" from="Interface/Grid/Match3" to="." method="_on_match_3_button_up"]
 [connection signal="button_up" from="Interface/Grid/Screen2D" to="." method="_on_screen_2D_button_up"]
 [connection signal="button_up" from="Interface/Grid/GitHub" to="." method="_on_git_hub_button_up"]

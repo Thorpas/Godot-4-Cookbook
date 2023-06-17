@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpyrqxtaody2l"]
+
+[ext_resource type="Script" path="res://system/showcases/checkerboard/board/Checkerboard.gd" id="1_e1hax"]
+
+[node name="Checkerboard" type="Node2D"]
+script = ExtResource("1_e1hax")
+
+[node name="Grid" type="GridContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 8

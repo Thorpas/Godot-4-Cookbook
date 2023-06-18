@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://pqbno1oq6tq5"]
+
+[ext_resource type="Texture2D" uid="uid://b8rexxe8j53ne" path="res://data/images/white_square.png" id="1_ggtqf"]
+[ext_resource type="Script" path="res://system/showcases/checkerboard/board/CheckerboardTile.gd" id="1_wgwrn"]
+
+[node name="CheckerboardTile" type="TextureButton"]
+texture_normal = ExtResource("1_ggtqf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_wgwrn")

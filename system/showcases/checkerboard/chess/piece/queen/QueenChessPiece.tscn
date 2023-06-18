@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjnnps140sab6"]
+
+[ext_resource type="PackedScene" uid="uid://bgglkdgor7ib5" path="res://system/showcases/checkerboard/chess/piece/ChessPiece.tscn" id="1_5djtj"]
+[ext_resource type="Script" path="res://system/showcases/checkerboard/chess/piece/queen/QueenChessPiece.gd" id="2_x7vrn"]
+
+[node name="QueenChessPiece" instance=ExtResource("1_5djtj")]
+script = ExtResource("2_x7vrn")
+
+[node name="Label" parent="." index="0"]
+text = "[center][font_size=18]Queen
+"

@@ -10,8 +10,143 @@ script = ExtResource("2_7xiot")
 [node name="Title" parent="." index="0"]
 text = "[font_size=90]Checkerboard[/font_size]"
 
-[node name="CheckerboardGame" parent="." index="1" instance=ExtResource("3_kckld")]
-position = Vector2(160, 135)
+[node name="Chess" type="Control" parent="." index="1"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Files" type="HBoxContainer" parent="Chess" index="0"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 135.0
+offset_right = 828.0
+offset_bottom = 172.0
+theme_override_constants/separation = 0
+
+[node name="A" type="RichTextLabel" parent="Chess/Files" index="0"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=27]A[/font_size][/center]"
+fit_content = true
+
+[node name="B" type="RichTextLabel" parent="Chess/Files" index="1"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=27]B[/font_size][/center]"
+fit_content = true
+
+[node name="C" type="RichTextLabel" parent="Chess/Files" index="2"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=27]C[/font_size][/center]"
+fit_content = true
+
+[node name="D" type="RichTextLabel" parent="Chess/Files" index="3"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=27]D[/font_size][/center]"
+fit_content = true
+
+[node name="E" type="RichTextLabel" parent="Chess/Files" index="4"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=27]E[/font_size][/center]"
+fit_content = true
+
+[node name="F" type="RichTextLabel" parent="Chess/Files" index="5"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=27]F[/font_size][/center]"
+fit_content = true
+
+[node name="G" type="RichTextLabel" parent="Chess/Files" index="6"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=27]G[/font_size][/center]"
+fit_content = true
+
+[node name="H" type="RichTextLabel" parent="Chess/Files" index="7"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=27]H[/font_size][/center]"
+fit_content = true
+
+[node name="Ranks" type="VBoxContainer" parent="Chess" index="1"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 220.0
+offset_right = 187.0
+offset_bottom = 820.0
+theme_override_constants/separation = 0
+
+[node name="8" type="RichTextLabel" parent="Chess/Ranks" index="0"]
+custom_minimum_size = Vector2(37, 75)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=27]8[/font_size]"
+fit_content = true
+
+[node name="7" type="RichTextLabel" parent="Chess/Ranks" index="1"]
+custom_minimum_size = Vector2(37, 75)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=27]7[/font_size]"
+fit_content = true
+
+[node name="6" type="RichTextLabel" parent="Chess/Ranks" index="2"]
+custom_minimum_size = Vector2(37, 75)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=27]6[/font_size]"
+fit_content = true
+
+[node name="5" type="RichTextLabel" parent="Chess/Ranks" index="3"]
+custom_minimum_size = Vector2(37, 75)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=27]5[/font_size]"
+fit_content = true
+
+[node name="4" type="RichTextLabel" parent="Chess/Ranks" index="4"]
+custom_minimum_size = Vector2(37, 75)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=27]4[/font_size]"
+fit_content = true
+
+[node name="3" type="RichTextLabel" parent="Chess/Ranks" index="5"]
+custom_minimum_size = Vector2(37, 75)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=27]3[/font_size]"
+fit_content = true
+
+[node name="2" type="RichTextLabel" parent="Chess/Ranks" index="6"]
+custom_minimum_size = Vector2(37, 75)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=27]2[/font_size]"
+fit_content = true
+
+[node name="1" type="RichTextLabel" parent="Chess/Ranks" index="7"]
+custom_minimum_size = Vector2(37, 75)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=27]1[/font_size]"
+fit_content = true
+
+[node name="CheckerboardGame" parent="." index="2" instance=ExtResource("3_kckld")]
+position = Vector2(200, 200)
 
 [node name="VBox" type="VBoxContainer" parent="Interface" index="0"]
 custom_minimum_size = Vector2(160, 800)
@@ -29,5 +164,8 @@ V0.1"
 custom_minimum_size = Vector2(160, 90)
 layout_mode = 2
 text = "Test"
+
+[node name="Transition" parent="." index="4"]
+visible = false
 
 [connection signal="button_up" from="Interface/VBox/Chess" to="." method="_on_chess_button_up"]

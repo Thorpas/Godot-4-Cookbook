@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dof6g3qoav414"]
+
+[ext_resource type="PackedScene" uid="uid://bgglkdgor7ib5" path="res://system/showcases/checkerboard/chess/piece/ChessPiece.tscn" id="1_jbgby"]
+[ext_resource type="Script" path="res://system/showcases/checkerboard/chess/piece/bishop/BishopChessPiece.gd" id="2_1te7o"]
+
+[node name="BishopChessPiece" instance=ExtResource("1_jbgby")]
+script = ExtResource("2_1te7o")
+
+[node name="Label" parent="." index="0"]
+text = "[center][font_size=18]Bishop"

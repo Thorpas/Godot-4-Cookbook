@@ -8,4 +8,6 @@ script = ExtResource("1_e1hax")
 [node name="Grid" type="GridContainer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
 columns = 8

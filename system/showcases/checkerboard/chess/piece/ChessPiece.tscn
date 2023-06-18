@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgglkdgor7ib5"]
+
+[ext_resource type="PackedScene" uid="uid://606fwcj6ulo5" path="res://system/showcases/checkerboard/board/CheckerboardPiece.tscn" id="1_52xum"]
+[ext_resource type="Script" path="res://system/showcases/checkerboard/chess/piece/ChessPiece.gd" id="2_3tiaq"]
+
+[node name="ChessPiece" instance=ExtResource("1_52xum")]
+script = ExtResource("2_3tiaq")
+
+[node name="Label" type="RichTextLabel" parent="." index="0"]
+custom_minimum_size = Vector2(75, 0)
+offset_left = -37.5
+offset_top = -18.75
+offset_right = 37.5
+offset_bottom = 7.25
+bbcode_enabled = true
+text = "[center][font_size=18]Piece"
+fit_content = true

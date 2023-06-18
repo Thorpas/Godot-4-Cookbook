@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d36yh8pdrnuk4"]
 
 [ext_resource type="PackedScene" uid="uid://bgglkdgor7ib5" path="res://system/showcases/checkerboard/chess/piece/ChessPiece.tscn" id="1_1t8gl"]
-[ext_resource type="Script" path="res://system/showcases/checkerboard/chess/piece/knight/KnightChessPiece.gd" id="2_u44vj"]
+[ext_resource type="Script" path="res://system/showcases/checkerboard/chess/piece/knight/ChessPieceKnight.gd" id="2_u44vj"]
 
 [node name="KnightChessPiece" instance=ExtResource("1_1t8gl")]
 script = ExtResource("2_u44vj")

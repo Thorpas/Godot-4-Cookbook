@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b31mj3toutaha"]
+
+[ext_resource type="PackedScene" uid="uid://bgglkdgor7ib5" path="res://system/showcases/checkerboard/chess/piece/ChessPiece.tscn" id="1_0xkiq"]
+
+[sub_resource type="GDScript" id="GDScript_g5xhj"]
+script/source = "extends ChessPiece
+class_name RookChessPiece
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="RookChessPiece" instance=ExtResource("1_0xkiq")]
+script = SubResource("GDScript_g5xhj")
+
+[node name="Label" parent="." index="0"]
+text = "[center][font_size=18]Rook"

@@ -90,22 +90,24 @@ func initialize_chess_game():
 	_set_piece_on_board(_piece, 6, 7)
 	_piece = _create_chess_piece(ROOK, WHITE)
 	_set_piece_on_board(_piece, 7, 7)
+func _on_chess_tile_selected(tile:CheckerboardTile):
+	pass
 ### Pieces
 func _create_chess_piece(piece:StringName, color:StringName)->ChessPiece:
 	var _piece:ChessPiece
 	match piece:
 		BISHOP:
-			_piece = load("res://system/showcases/checkerboard/chess/piece/bishop/BishopChessPiece.tscn").instantiate()
+			_piece = load("res://system/showcases/checkerboard/chess/piece/bishop/ChessPieceBishop.tscn").instantiate()
 		KING:
-			_piece = load("res://system/showcases/checkerboard/chess/piece/king/KingChessPiece.tscn").instantiate()
+			_piece = load("res://system/showcases/checkerboard/chess/piece/king/ChessPieceKing.tscn").instantiate()
 		KNIGHT:
-			_piece = load("res://system/showcases/checkerboard/chess/piece/knight/KnightChessPiece.tscn").instantiate()
+			_piece = load("res://system/showcases/checkerboard/chess/piece/knight/ChessPieceKnight.tscn").instantiate()
 		PAWN:
-			_piece = load("res://system/showcases/checkerboard/chess/piece/pawn/PawnChessPiece.tscn").instantiate()
+			_piece = load("res://system/showcases/checkerboard/chess/piece/pawn/ChessPiecePawn.tscn").instantiate()
 		QUEEN:
-			_piece = load("res://system/showcases/checkerboard/chess/piece/queen/QueenChessPiece.tscn").instantiate()
+			_piece = load("res://system/showcases/checkerboard/chess/piece/queen/ChessPieceQueen.tscn").instantiate()
 		ROOK:
-			_piece = load("res://system/showcases/checkerboard/chess/piece/ROOK/ROOKChessPiece.tscn").instantiate()
+			_piece = load("res://system/showcases/checkerboard/chess/piece/rook/ChessPieceRook.tscn").instantiate()
 	_piece.initialize_chess_piece(color)
 	return _piece
 
@@ -115,6 +117,12 @@ func _initialize_color_board(tileSize:Vector2, tileA:Color, tileB:Color):
 func _initialize_texture_board(tileSize:Vector2, tileA:Texture2D, tileB:Texture2D):
 	$Checkerboard.initialize_checkerboard(tileSize, tileA, tileB)
 ### Tiles
+func _on_checkerboard_tile_selected(tile):
+	match _game:
+		GAMES.CHESS:
+			_on_chess_tile_selected(tile)
+		_:
+			print("Tile " + str(tile) + " pressed.")
 ### Pieces
 func _set_piece_on_board(piece:CheckerboardPiece, x:int, y:int):
 	$Checkerboard.set_piece_on_board(piece, x, y)

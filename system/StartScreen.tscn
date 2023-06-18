@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://drfyelegyp6hb"]
+[gd_scene load_steps=5 format=3 uid="uid://drfyelegyp6hb"]
 
 [ext_resource type="PackedScene" uid="uid://b6emognfyiy71" path="res://system/showcases/screen2D/AbstractScreen2D.tscn" id="1_xbh4h"]
 [ext_resource type="Script" path="res://system/StartScreen.gd" id="2_mim2t"]
 [ext_resource type="Texture2D" uid="uid://rlnclwo8njpp" path="res://data/images/github-mark-white.svg" id="3_jig77"]
+[ext_resource type="Texture2D" uid="uid://l7otcw1xd581" path="res://data/images/icon.svg" id="4_y6ft6"]
 
 [node name="StartScreen" instance=ExtResource("1_xbh4h")]
 script = ExtResource("2_mim2t")
@@ -16,46 +17,86 @@ bbcode_enabled = true
 text = "[font_size=90]Godot 4 Cookbook[/font_size]"
 fit_content = true
 
-[node name="Grid" type="GridContainer" parent="Interface" index="0"]
-custom_minimum_size = Vector2(1540, 0)
-offset_left = 30.0
+[node name="VBox" type="VBoxContainer" parent="Interface" index="0"]
+custom_minimum_size = Vector2(1440, 720)
+offset_left = 80.0
 offset_top = 135.0
-offset_right = 1570.0
-offset_bottom = 239.0
+offset_right = 1520.0
+offset_bottom = 855.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Interface/VBox" index="0"]
+custom_minimum_size = Vector2(1440, 0)
+layout_mode = 2
+
+[node name="GitHub" type="Button" parent="Interface/VBox/HBoxContainer" index="0"]
+custom_minimum_size = Vector2(160, 45)
+layout_mode = 2
+size_flags_vertical = 3
+text = "GitHub"
+icon = ExtResource("3_jig77")
+expand_icon = true
+
+[node name="Godot" type="Button" parent="Interface/VBox/HBoxContainer" index="1"]
+custom_minimum_size = Vector2(160, 45)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Homepage"
+icon = ExtResource("4_y6ft6")
+expand_icon = true
+
+[node name="License" type="Button" parent="Interface/VBox/HBoxContainer" index="2"]
+custom_minimum_size = Vector2(160, 45)
+layout_mode = 2
+size_flags_vertical = 3
+text = "License"
+icon = ExtResource("4_y6ft6")
+expand_icon = true
+
+[node name="Quit" type="Button" parent="Interface/VBox/HBoxContainer" index="3"]
+custom_minimum_size = Vector2(160, 45)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Interface/VBox" index="1"]
+custom_minimum_size = Vector2(1440, 63)
+layout_mode = 2
+size_flags_vertical = 8
+bbcode_enabled = true
+text = "[font_size=45]Showcases"
+fit_content = true
+
+[node name="Showcases" type="GridContainer" parent="Interface/VBox" index="2"]
+custom_minimum_size = Vector2(1440, 90)
+layout_mode = 2
+size_flags_vertical = 3
 columns = 9
 
-[node name="Checkerboard" type="Button" parent="Interface/Grid" index="0"]
+[node name="Checkerboard" type="Button" parent="Interface/VBox/Showcases" index="0"]
 custom_minimum_size = Vector2(160, 90)
 layout_mode = 2
 text = "Checkerboard
 V0.1"
 
-[node name="Match3" type="Button" parent="Interface/Grid" index="1"]
+[node name="Match3" type="Button" parent="Interface/VBox/Showcases" index="1"]
 custom_minimum_size = Vector2(160, 90)
 layout_mode = 2
 text = "Match 3
 V0.8.3"
 
-[node name="Screen2D" type="Button" parent="Interface/Grid" index="2"]
+[node name="Screen2D" type="Button" parent="Interface/VBox/Showcases" index="2"]
 custom_minimum_size = Vector2(160, 90)
 layout_mode = 2
 text = "Screen 2D
 V0.1.5"
 
-[node name="GitHub" type="Button" parent="Interface/Grid" index="3"]
-custom_minimum_size = Vector2(160, 90)
-layout_mode = 2
-text = "GitHub"
-icon = ExtResource("3_jig77")
-icon_alignment = 1
+[node name="Transition" parent="." index="2"]
+visible = false
 
-[node name="Quit" type="Button" parent="Interface/Grid" index="4"]
-custom_minimum_size = Vector2(160, 90)
-layout_mode = 2
-text = "Quit"
-
-[connection signal="button_up" from="Interface/Grid/Checkerboard" to="." method="_on_checkerboard_button_up"]
-[connection signal="button_up" from="Interface/Grid/Match3" to="." method="_on_match_3_button_up"]
-[connection signal="button_up" from="Interface/Grid/Screen2D" to="." method="_on_screen_2D_button_up"]
-[connection signal="button_up" from="Interface/Grid/GitHub" to="." method="_on_git_hub_button_up"]
-[connection signal="button_up" from="Interface/Grid/Quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="Interface/VBox/HBoxContainer/GitHub" to="." method="_on_git_hub_button_up"]
+[connection signal="button_up" from="Interface/VBox/HBoxContainer/Godot" to="." method="_on_godot_button_up"]
+[connection signal="button_up" from="Interface/VBox/HBoxContainer/License" to="." method="_on_license_button_up"]
+[connection signal="button_up" from="Interface/VBox/HBoxContainer/Quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="Interface/VBox/Showcases/Checkerboard" to="." method="_on_checkerboard_button_up"]
+[connection signal="button_up" from="Interface/VBox/Showcases/Match3" to="." method="_on_match_3_button_up"]
+[connection signal="button_up" from="Interface/VBox/Showcases/Screen2D" to="." method="_on_screen_2D_button_up"]

@@ -58,9 +58,23 @@ layout_mode = 2
 text = "Fixed 32
 Duplicates"
 
+[node name="Random32Duplicates" type="Button" parent="Interface/VBoxContainer" index="4"]
+custom_minimum_size = Vector2(160, 90)
+layout_mode = 2
+text = "Randomized 32
+Duplicates"
+
+[node name="Random32DuplicatesBlind" type="Button" parent="Interface/VBoxContainer" index="5"]
+custom_minimum_size = Vector2(160, 90)
+layout_mode = 2
+text = "Randomized 32
+Duplicates Blind"
+
 [connection signal="flips_increased" from="Match2Game" to="." method="_on_match_2_game_flips_increased"]
 [connection signal="button_up" from="Interface/Start" to="." method="_on_start_button_up"]
 [connection signal="button_up" from="Interface/VBoxContainer/Fixed16" to="." method="_on_fixed_16_button_up"]
 [connection signal="button_up" from="Interface/VBoxContainer/Random16" to="." method="_on_random_16_button_up"]
 [connection signal="button_up" from="Interface/VBoxContainer/Random16Blind" to="." method="_on_random_16_blind_button_up"]
 [connection signal="button_up" from="Interface/VBoxContainer/Fixed32Duplicates" to="." method="_on_fixed_32_duplicates_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/Random32Duplicates" to="." method="_on_random_32_duplicates_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/Random32DuplicatesBlind" to="." method="_on_random_32_duplicates_blind_button_up"]

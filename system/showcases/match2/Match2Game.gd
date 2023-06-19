@@ -17,17 +17,30 @@ func initialize_match_2_game(cards:Array):
 	for _card in cards:
 		$Cards.add_child(_card)
 		_card.card_selected.connect(on_card_selected)
-func create_randomized_cards(faces:Dictionary, back:Texture2D)->Array:
+func create_randomized_cards(faces:Dictionary, back:Texture2D, cards:int):
 	var _cards:Array = []
 	var _randomized:Array = []
-	for _key in faces:
-		_cards.append(create_match_2_card(_key, faces[_key], back))
+	for _i in cards:
+		var _key = faces.keys().pick_random()
 		_cards.append(create_match_2_card(_key, faces[_key], back))
 	while _cards.size() > 0:
 		var _card:Match2Card = _cards.pick_random()
 		_randomized.append(_card)
 		_cards.erase(_card)
 	return _randomized
+func create_equal_card_sets(faces:Dictionary, back:Texture2D, multiples:int):
+	var _cards:Array = []
+	var _randomized:Array = []
+	for _key in faces:
+		for _i in multiples:
+			_cards.append(create_match_2_card(_key, faces[_key], back))
+	while _cards.size() > 0:
+		var _card:Match2Card = _cards.pick_random()
+		_randomized.append(_card)
+		_cards.erase(_card)
+	return _randomized
+func create_card_pairs(faces:Dictionary, back:Texture2D)->Array:
+	return create_equal_card_sets(faces, back, 2)
 func start_game(timer:float):
 	if timer > 0.0:
 		await _reveal_cards()

@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://ka77the1ybtn"]
+
+[ext_resource type="PackedScene" uid="uid://ose10q3meu8j" path="res://system/ShowcaseScreen.tscn" id="1_ydj3n"]
+[ext_resource type="Script" path="res://system/showcases/match2/Match2ShowcaseScreen.gd" id="2_kst4f"]
+[ext_resource type="PackedScene" uid="uid://cg6uegyr3gjtx" path="res://system/showcases/match2/Match2Game.tscn" id="3_tq0v8"]
+
+[node name="Match2ShowcaseScreen" instance=ExtResource("1_ydj3n")]
+script = ExtResource("2_kst4f")
+
+[node name="Title" parent="." index="0"]
+text = "[font_size=90]Match 2[/font_size]"
+
+[node name="Match2Game" parent="." index="1" instance=ExtResource("3_tq0v8")]
+position = Vector2(200, 135)
+
+[node name="Turns" type="RichTextLabel" parent="." index="2"]
+custom_minimum_size = Vector2(160, 90)
+offset_top = 225.0
+offset_right = 160.0
+offset_bottom = 315.0
+bbcode_enabled = true
+text = "[center][font_size=27]Turns: 0"
+fit_content = true
+
+[node name="Start" type="Button" parent="Interface" index="0"]
+custom_minimum_size = Vector2(160, 90)
+offset_top = 135.0
+offset_right = 160.0
+offset_bottom = 225.0
+disabled = true
+text = "Start Game"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Interface" index="1"]
+custom_minimum_size = Vector2(160, 810)
+offset_left = 1440.0
+offset_right = 1600.0
+offset_bottom = 810.0
+
+[node name="Random16" type="Button" parent="Interface/VBoxContainer" index="0"]
+custom_minimum_size = Vector2(160, 90)
+layout_mode = 2
+text = "Random 16"
+
+[node name="Fixed16V1" type="Button" parent="Interface/VBoxContainer" index="1"]
+custom_minimum_size = Vector2(160, 90)
+layout_mode = 2
+text = "Fixed 16
+Variation 1"
+
+[connection signal="flips_increased" from="Match2Game" to="." method="_on_match_2_game_flips_increased"]
+[connection signal="button_up" from="Interface/Start" to="." method="_on_start_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/Random16" to="." method="_on_random_16_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/Fixed16V1" to="." method="_on_fixed_16_v1_button_up"]

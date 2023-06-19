@@ -58,7 +58,7 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Quit"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Interface/VBox" index="1"]
+[node name="ShowcasesLabel" type="RichTextLabel" parent="Interface/VBox" index="1"]
 custom_minimum_size = Vector2(1440, 63)
 layout_mode = 2
 size_flags_vertical = 8
@@ -66,25 +66,49 @@ bbcode_enabled = true
 text = "[font_size=45]Showcases"
 fit_content = true
 
-[node name="Showcases" type="GridContainer" parent="Interface/VBox" index="2"]
+[node name="GamesLabel" type="RichTextLabel" parent="Interface/VBox" index="2"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=36]Games"
+fit_content = true
+
+[node name="GamesGrid" type="GridContainer" parent="Interface/VBox" index="3"]
 custom_minimum_size = Vector2(1440, 90)
 layout_mode = 2
-size_flags_vertical = 3
 columns = 9
 
-[node name="Checkerboard" type="Button" parent="Interface/VBox/Showcases" index="0"]
+[node name="Checkerboard" type="Button" parent="Interface/VBox/GamesGrid" index="0"]
 custom_minimum_size = Vector2(160, 90)
 layout_mode = 2
 text = "Checkerboard
 V0.1"
 
-[node name="Match3" type="Button" parent="Interface/VBox/Showcases" index="1"]
+[node name="Match2" type="Button" parent="Interface/VBox/GamesGrid" index="1"]
+custom_minimum_size = Vector2(160, 90)
+layout_mode = 2
+text = "Match 2
+V0.1"
+
+[node name="Match3" type="Button" parent="Interface/VBox/GamesGrid" index="2"]
 custom_minimum_size = Vector2(160, 90)
 layout_mode = 2
 text = "Match 3
 V0.8.3"
 
-[node name="Screen2D" type="Button" parent="Interface/VBox/Showcases" index="2"]
+[node name="SystemLabel" type="RichTextLabel" parent="Interface/VBox" index="4"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=36]Systems"
+fit_content = true
+
+[node name="SystemGrid" type="GridContainer" parent="Interface/VBox" index="5"]
+custom_minimum_size = Vector2(1440, 90)
+layout_mode = 2
+columns = 9
+
+[node name="Screen2D" type="Button" parent="Interface/VBox/SystemGrid" index="0"]
 custom_minimum_size = Vector2(160, 90)
 layout_mode = 2
 text = "Screen 2D
@@ -97,6 +121,7 @@ visible = false
 [connection signal="button_up" from="Interface/VBox/HBoxContainer/Godot" to="." method="_on_godot_button_up"]
 [connection signal="button_up" from="Interface/VBox/HBoxContainer/License" to="." method="_on_license_button_up"]
 [connection signal="button_up" from="Interface/VBox/HBoxContainer/Quit" to="." method="_on_quit_button_up"]
-[connection signal="button_up" from="Interface/VBox/Showcases/Checkerboard" to="." method="_on_checkerboard_button_up"]
-[connection signal="button_up" from="Interface/VBox/Showcases/Match3" to="." method="_on_match_3_button_up"]
-[connection signal="button_up" from="Interface/VBox/Showcases/Screen2D" to="." method="_on_screen_2D_button_up"]
+[connection signal="button_up" from="Interface/VBox/GamesGrid/Checkerboard" to="." method="_on_checkerboard_button_up"]
+[connection signal="button_up" from="Interface/VBox/GamesGrid/Match2" to="." method="_on_match_2_button_up"]
+[connection signal="button_up" from="Interface/VBox/GamesGrid/Match3" to="." method="_on_match_3_button_up"]
+[connection signal="button_up" from="Interface/VBox/SystemGrid/Screen2D" to="." method="_on_screen_2D_button_up"]

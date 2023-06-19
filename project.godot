@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="TPS Cookbook"
+config/name="Godot 4 Cookbook"
 run/main_scene="res://system/StartScreen.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://data/images/icon.svg"

@@ -88,7 +88,7 @@ V0.1"
 custom_minimum_size = Vector2(160, 90)
 layout_mode = 2
 text = "Match 2
-V0.2"
+V0.6"
 
 [node name="Match3" type="Button" parent="Interface/VBox/GamesGrid" index="2"]
 custom_minimum_size = Vector2(160, 90)

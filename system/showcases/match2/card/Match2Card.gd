@@ -4,7 +4,9 @@ class_name Match2Card
 signal card_selected(card)
 
 # Variables
+## Key to determine matching cards.
 var _key:StringName = &"key"
+## Wether the card has been matched or not.
 var _matched:bool = false
 
 # Functions
@@ -16,8 +18,10 @@ func initialize_match_2_card(key:StringName, face:Texture2D, back:Texture2D):
 	$Back.set_texture(back)
 	set_disabled(true)
 	hide_face()
-func check_match(other):
+func check_match(other)->bool:
 	return _key == other.get_key()
+func check_unmatched()->bool:
+	return not _matched
 func show_face():
 	_hide_back()
 func hide_face():

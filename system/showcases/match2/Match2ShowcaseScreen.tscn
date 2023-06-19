@@ -19,7 +19,18 @@ offset_top = 225.0
 offset_right = 160.0
 offset_bottom = 315.0
 bbcode_enabled = true
-text = "[center][font_size=27]Turns: 0"
+text = "[center][font_size=27]Turns
+0"
+fit_content = true
+
+[node name="Matches" type="RichTextLabel" parent="." index="3"]
+custom_minimum_size = Vector2(160, 90)
+offset_top = 315.0
+offset_right = 160.0
+offset_bottom = 405.0
+bbcode_enabled = true
+text = "[center][font_size=27]Matches
+0"
 fit_content = true
 
 [node name="Start" type="Button" parent="Interface" index="0"]
@@ -82,7 +93,8 @@ layout_mode = 2
 text = "Randomized 32
 Multiples Blind"
 
-[connection signal="flips_increased" from="Match2Game" to="." method="_on_match_2_game_flips_increased"]
+[connection signal="card_selected" from="Match2Game" to="." method="_on_match_2_game_card_selected"]
+[connection signal="game_over" from="Match2Game" to="." method="_on_match_2_game_game_over"]
 [connection signal="button_up" from="Interface/Start" to="." method="_on_start_button_up"]
 [connection signal="button_up" from="Interface/VBoxContainer/Fixed16" to="." method="_on_fixed_16_button_up"]
 [connection signal="button_up" from="Interface/VBoxContainer/Random16" to="." method="_on_random_16_button_up"]

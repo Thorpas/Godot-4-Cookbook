@@ -41,9 +41,9 @@ func create_match_2_card(key:StringName, face:Texture2D, back:Texture2D)->Match2
 
 ## Cards
 func on_card_selected(card):
-	_flips += 1
-	emit_signal("flips_increased")
 	if _cardSelected == null:
+		_flips += 1
+		emit_signal("flips_increased")
 		_cardSelected = card
 		_cardSelected.show_face()
 	else:
@@ -51,11 +51,15 @@ func on_card_selected(card):
 			_cardSelected.hide_face()
 			_cardSelected = null
 		elif _cardSelected.check_match(card):
+			_flips += 1
+			emit_signal("flips_increased")
 			_cardSelected.on_card_matched()
 			_cardSelected = null
 			card.show_face()
 			card.on_card_matched()
 		else:
+			_flips += 1
+			emit_signal("flips_increased")
 			card.show_face()
 			await disable_cards()
 			$Timer.start(1.5)

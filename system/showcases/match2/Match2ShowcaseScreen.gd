@@ -1,6 +1,7 @@
 extends ShowcaseScreen
 
 # Functions
+## Controls if and how long the cards are shown at the start of the game.
 var _revealTime:float = 2.5
 
 ## Interface
@@ -135,6 +136,40 @@ func _on_random_32_duplicates_blind_button_up():
 		&"Yellow": load("res://data/images/yellow_square.png"),
 	}
 	$Match2Game.initialize_match_2_game($Match2Game.create_equal_card_sets(_faces, load("res://data/images/icon.svg"), 4))
+	$Interface/Start.set_disabled(false)
+	await transition_from_color(Color.BLACK, 0.5)
+	_revealTime = 0.0
+func _on_random_32_multiples_button_up():
+	$Match2Game.columns = 8
+	await transition_into_color(Color.BLACK, 0.5)
+	var _faces:Dictionary = {
+		&"Black": load("res://data/images/black_square.png"),
+		&"Blue": load("res://data/images/blue_square.png"),
+		&"Green": load("res://data/images/green_square.png"),
+		&"Orange": load("res://data/images/orange_square.png"),
+		&"Purple": load("res://data/images/purple_square.png"),
+		&"Red": load("res://data/images/red_square.png"),
+		&"White": load("res://data/images/white_square.png"),
+		&"Yellow": load("res://data/images/yellow_square.png"),
+	}
+	$Match2Game.initialize_match_2_game($Match2Game.create_randomized_cards(_faces, load("res://data/images/icon.svg"), 32))
+	$Interface/Start.set_disabled(false)
+	await transition_from_color(Color.BLACK, 0.5)
+	_revealTime = 2.5
+func _on_random_32_multiples_blind_button_up():
+	$Match2Game.columns = 8
+	await transition_into_color(Color.BLACK, 0.5)
+	var _faces:Dictionary = {
+		&"Black": load("res://data/images/black_square.png"),
+		&"Blue": load("res://data/images/blue_square.png"),
+		&"Green": load("res://data/images/green_square.png"),
+		&"Orange": load("res://data/images/orange_square.png"),
+		&"Purple": load("res://data/images/purple_square.png"),
+		&"Red": load("res://data/images/red_square.png"),
+		&"White": load("res://data/images/white_square.png"),
+		&"Yellow": load("res://data/images/yellow_square.png"),
+	}
+	$Match2Game.initialize_match_2_game($Match2Game.create_randomized_cards(_faces, load("res://data/images/icon.svg"), 32))
 	$Interface/Start.set_disabled(false)
 	await transition_from_color(Color.BLACK, 0.5)
 	_revealTime = 0.0

@@ -29,9 +29,10 @@ func create_randomized_cards(faces:Dictionary, back:Texture2D)->Array:
 		_cards.erase(_card)
 	return _randomized
 func start_game(timer:float):
-	await _reveal_cards()
-	$Timer.start(timer)
-	await $Timer.timeout
+	if timer > 0.0:
+		await _reveal_cards()
+		$Timer.start(timer)
+		await $Timer.timeout
 	await _hide_cards()
 func create_match_2_card(key:StringName, face:Texture2D, back:Texture2D)->Match2Card:
 	var _card:Match2Card = load("res://system/showcases/match2/card/Match2Card.tscn").instantiate()

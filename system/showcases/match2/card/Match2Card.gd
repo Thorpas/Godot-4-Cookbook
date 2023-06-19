@@ -41,5 +41,3 @@ func _hide_back():
 	$Back.set_visible(false)
 func _show_back():
 	$Back.set_visible(true)
-
-

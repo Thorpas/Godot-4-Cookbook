@@ -15,9 +15,9 @@ position = Vector2(200, 135)
 
 [node name="Turns" type="RichTextLabel" parent="." index="2"]
 custom_minimum_size = Vector2(160, 90)
-offset_top = 225.0
+offset_top = 245.0
 offset_right = 160.0
-offset_bottom = 315.0
+offset_bottom = 335.0
 bbcode_enabled = true
 text = "[center][font_size=27]Turns
 0"
@@ -25,9 +25,9 @@ fit_content = true
 
 [node name="Matches" type="RichTextLabel" parent="." index="3"]
 custom_minimum_size = Vector2(160, 90)
-offset_top = 315.0
+offset_top = 335.0
 offset_right = 160.0
-offset_bottom = 405.0
+offset_bottom = 425.0
 bbcode_enabled = true
 text = "[center][font_size=27]Matches
 0"

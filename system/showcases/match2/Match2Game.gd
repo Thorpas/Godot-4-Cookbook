@@ -38,23 +38,19 @@ func create_match_2_card(key:StringName, face:Texture2D, back:Texture2D)->Match2
 	var _card:Match2Card = load("res://system/showcases/match2/card/Match2Card.tscn").instantiate()
 	_card.initialize_match_2_card(key, face, back)
 	return _card
-func create_randomized_cards(faces:Dictionary, back:Texture2D, cards:int):
+func create_random_card_sets(faces:Dictionary, back:Texture2D, pairs:int):
 	var _cards:Array = []
-	for _i in cards:
+	for _i in pairs:
 		var _key = faces.keys().pick_random()
 		_cards.append(create_match_2_card(_key, faces[_key], back))
-	return _cards
+		_cards.append(create_match_2_card(_key, faces[_key], back))
+	return _randomize_cards(_cards)
 func create_equal_card_sets(faces:Dictionary, back:Texture2D, multiples:int):
 	var _cards:Array = []
-	var _randomized:Array = []
 	for _key in faces:
 		for _i in multiples:
 			_cards.append(create_match_2_card(_key, faces[_key], back))
-	while _cards.size() > 0:
-		var _card:Match2Card = _cards.pick_random()
-		_randomized.append(_card)
-		_cards.erase(_card)
-	return _randomized
+	return _randomize_cards(_cards)
 func create_card_pairs(faces:Dictionary, back:Texture2D)->Array:
 	return create_equal_card_sets(faces, back, 2)
 func count_possible_matches()->int:
@@ -103,6 +99,13 @@ func disable_cards():
 func enable_cards():
 	for _card in $Cards.get_children():
 		_card.enable_card()
+func _randomize_cards(cards:Array)->Array:
+	var _randomized:Array = []
+	while cards.size() > 0:
+		var _card:Match2Card = cards.pick_random()
+		_randomized.append(_card)
+		cards.erase(_card)
+	return _randomized
 func _reveal_cards():
 	for _card in $Cards.get_children():
 		_card.show_face()

@@ -104,10 +104,10 @@ func _on_random_32_duplicates_blind_button_up():
 	_cards = $Match2Game.create_equal_card_sets(_faces, CARD_BACK, 4)
 	await _initialize_match_2_game(8, 0.0)
 func _on_random_32_multiples_button_up():
-	_cards = $Match2Game.create_randomized_cards(_faces, CARD_BACK, 32)
+	_cards = $Match2Game.create_random_card_sets(_faces, CARD_BACK, 16)
 	await _initialize_match_2_game(8, 2.5)
 func _on_random_32_multiples_blind_button_up():
-	_cards = $Match2Game.create_randomized_cards(_faces, CARD_BACK, 32)
+	_cards = $Match2Game.create_random_card_sets(_faces, CARD_BACK, 16)
 	await _initialize_match_2_game(8, 0.0)
 ### Game
 func _on_start_button_up():

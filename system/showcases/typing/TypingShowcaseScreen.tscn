@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt5wq8oupgj02"]
+
+[ext_resource type="PackedScene" uid="uid://ose10q3meu8j" path="res://system/ShowcaseScreen.tscn" id="1_urhk0"]
+
+[node name="TypingShowcaseScreen" instance=ExtResource("1_urhk0")]

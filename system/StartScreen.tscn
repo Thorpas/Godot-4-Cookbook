@@ -96,6 +96,12 @@ layout_mode = 2
 text = "Match 3
 V0.8.3"
 
+[node name="Typing" type="Button" parent="Interface/VBox/GamesGrid" index="3"]
+custom_minimum_size = Vector2(160, 90)
+layout_mode = 2
+text = "Typing
+V0.1"
+
 [node name="SystemLabel" type="RichTextLabel" parent="Interface/VBox" index="4"]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
@@ -124,4 +130,5 @@ visible = false
 [connection signal="button_up" from="Interface/VBox/GamesGrid/Checkerboard" to="." method="_on_checkerboard_button_up"]
 [connection signal="button_up" from="Interface/VBox/GamesGrid/Match2" to="." method="_on_match_2_button_up"]
 [connection signal="button_up" from="Interface/VBox/GamesGrid/Match3" to="." method="_on_match_3_button_up"]
+[connection signal="button_up" from="Interface/VBox/GamesGrid/Typing" to="." method="_on_typing_button_up"]
 [connection signal="button_up" from="Interface/VBox/SystemGrid/Screen2D" to="." method="_on_screen_2D_button_up"]

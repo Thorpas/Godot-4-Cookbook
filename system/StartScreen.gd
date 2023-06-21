@@ -29,6 +29,9 @@ func _on_match_2_button_up():
 func _on_match_3_button_up():
 	await transition_into_color(Color.BLACK, 0.5)
 	get_tree().change_scene_to_packed(load("res://system/showcases/match3/Match3ShowcaseScreen.tscn"))
+func _on_typing_button_up():
+	await transition_into_color(Color.BLACK, 0.5)
+	get_tree().change_scene_to_packed(load("res://system/showcases/typing/TypingShowcaseScreen.tscn"))
 ### System Showcases
 func _on_screen_2D_button_up():
 	await transition_into_color(Color.BLACK, 0.5)

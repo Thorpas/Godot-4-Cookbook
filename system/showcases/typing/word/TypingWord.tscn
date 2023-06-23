@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmw7h8py72o3v"]
+
+[ext_resource type="Script" path="res://system/showcases/typing/word/TypingWord.gd" id="1_8g7d2"]
+
+[node name="TypingWord" type="Node"]
+script = ExtResource("1_8g7d2")

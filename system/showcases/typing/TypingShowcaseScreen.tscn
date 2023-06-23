@@ -1,5 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://dt5wq8oupgj02"]
+[gd_scene load_steps=4 format=3 uid="uid://dt5wq8oupgj02"]
 
 [ext_resource type="PackedScene" uid="uid://ose10q3meu8j" path="res://system/ShowcaseScreen.tscn" id="1_urhk0"]
+[ext_resource type="Script" path="res://system/showcases/typing/TypingShowcaseScreen.gd" id="2_ltbum"]
+[ext_resource type="PackedScene" uid="uid://c62ogcvoefywk" path="res://system/showcases/typing/word/TypingWordLabel.tscn" id="2_qik7x"]
 
 [node name="TypingShowcaseScreen" instance=ExtResource("1_urhk0")]
+script = ExtResource("2_ltbum")
+
+[node name="InputLabel" type="RichTextLabel" parent="." index="1"]
+custom_minimum_size = Vector2(160, 90)
+offset_left = 200.0
+offset_top = 300.0
+offset_right = 240.0
+offset_bottom = 340.0
+bbcode_enabled = true
+
+[node name="TypingWordLabel" parent="." index="2" instance=ExtResource("2_qik7x")]
+custom_minimum_size = Vector2(320, 90)
+offset_left = 200.0
+offset_top = 200.0
+offset_right = 520.0
+offset_bottom = 290.0

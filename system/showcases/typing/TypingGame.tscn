@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bw7twwruwd4ls"]
+[gd_scene load_steps=3 format=3 uid="uid://bw7twwruwd4ls"]
 
 [ext_resource type="Script" path="res://system/showcases/typing/TypingGame.gd" id="1_ui0qt"]
+[ext_resource type="PackedScene" uid="uid://c62ogcvoefywk" path="res://system/showcases/typing/word/TypingWordLabel.tscn" id="2_iurcs"]
 
 [node name="TypingGame" type="Node2D"]
 script = ExtResource("1_ui0qt")
+
+[node name="TypingWordLabel" parent="." instance=ExtResource("2_iurcs")]

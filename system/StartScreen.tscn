@@ -118,7 +118,7 @@ columns = 9
 custom_minimum_size = Vector2(160, 90)
 layout_mode = 2
 text = "RPG Attribute
-V0.1"
+V0.2"
 
 [node name="Screen2D" type="Button" parent="Interface/VBox/SystemGrid" index="1"]
 custom_minimum_size = Vector2(160, 90)

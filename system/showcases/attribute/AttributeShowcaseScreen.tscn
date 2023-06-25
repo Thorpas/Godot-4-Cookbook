@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://ose10q3meu8j" path="res://system/ShowcaseScreen.tscn" id="1_oi2g5"]
 [ext_resource type="Script" path="res://system/showcases/attribute/AttributeShowcaseScreen.gd" id="2_whcjk"]
-[ext_resource type="PackedScene" uid="uid://ddx1q65imerrq" path="res://system/showcases/attribute/FloatAttribute.tscn" id="3_xx5kb"]
-[ext_resource type="PackedScene" uid="uid://bj3xxkekqeb5y" path="res://system/showcases/attribute/IntegerAttribute.tscn" id="4_j3a7a"]
+[ext_resource type="PackedScene" uid="uid://ddx1q65imerrq" path="res://system/showcases/attribute/float/FloatAttribute.tscn" id="3_g57n7"]
+[ext_resource type="PackedScene" uid="uid://bj3xxkekqeb5y" path="res://system/showcases/attribute/integer/IntegerAttribute.tscn" id="4_4i3o2"]
 
 [node name="AttributeShowcaseScreen" instance=ExtResource("1_oi2g5")]
 script = ExtResource("2_whcjk")
@@ -11,9 +11,9 @@ script = ExtResource("2_whcjk")
 [node name="Title" parent="." index="0"]
 text = "[font_size=90]RPG Attribute[/font_size]"
 
-[node name="FloatAttribute" parent="." index="1" instance=ExtResource("3_xx5kb")]
+[node name="FloatAttribute" parent="." index="1" instance=ExtResource("3_g57n7")]
 
-[node name="IntegerAttribute" parent="." index="2" instance=ExtResource("4_j3a7a")]
+[node name="IntegerAttribute" parent="." index="2" instance=ExtResource("4_4i3o2")]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Interface" index="0"]
 offset_left = 80.0

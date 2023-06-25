@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj3xxkekqeb5y"]
+
+[ext_resource type="PackedScene" uid="uid://cscnvrw8os8dv" path="res://system/showcases/attribute/AbstractAttribute.tscn" id="1_ie5r8"]
+[ext_resource type="Script" path="res://system/showcases/attribute/integer/IntegerAttribute.gd" id="2_dvd8p"]
+
+[node name="IntegerAttribute" instance=ExtResource("1_ie5r8")]
+script = ExtResource("2_dvd8p")
+baseMaximum = 999999
+baseMinimum = 0
+addendMaximum = 999999
+addendMinimum = 0

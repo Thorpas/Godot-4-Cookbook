@@ -9,10 +9,14 @@ class_name AbstractAttribute
 var _multiplier:float = 1.0
 ### Constraints
 @export_category("Multiplier Constraints")
+## Upper limit of the multiplier used in calculations.
 @export var multiplierMaximum:float = 999999.0
+## Lower limit of the multiplier used in calculations.
 @export var multiplierMinimum:float = 0.0
 @export_category("Value Constraints")
+## Upper limit of the returned value.
 @export var valueMaximum:float = 999999.0
+## Lower limit of the returned value.
 @export var valueMinimum:float = 0.0
 
 # Functions

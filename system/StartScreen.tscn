@@ -114,7 +114,13 @@ custom_minimum_size = Vector2(1440, 90)
 layout_mode = 2
 columns = 9
 
-[node name="Screen2D" type="Button" parent="Interface/VBox/SystemGrid" index="0"]
+[node name="Attribute" type="Button" parent="Interface/VBox/SystemGrid" index="0"]
+custom_minimum_size = Vector2(160, 90)
+layout_mode = 2
+text = "RPG Attribute
+V0.1"
+
+[node name="Screen2D" type="Button" parent="Interface/VBox/SystemGrid" index="1"]
 custom_minimum_size = Vector2(160, 90)
 layout_mode = 2
 text = "Screen 2D
@@ -131,4 +137,5 @@ visible = false
 [connection signal="button_up" from="Interface/VBox/GamesGrid/Match2" to="." method="_on_match_2_button_up"]
 [connection signal="button_up" from="Interface/VBox/GamesGrid/Match3" to="." method="_on_match_3_button_up"]
 [connection signal="button_up" from="Interface/VBox/GamesGrid/Typing" to="." method="_on_typing_button_up"]
+[connection signal="button_up" from="Interface/VBox/SystemGrid/Attribute" to="." method="_on_attribute_button_up"]
 [connection signal="button_up" from="Interface/VBox/SystemGrid/Screen2D" to="." method="_on_screen_2D_button_up"]

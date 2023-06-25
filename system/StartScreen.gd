@@ -33,6 +33,9 @@ func _on_typing_button_up():
 	await transition_into_color(Color.BLACK, 0.5)
 	get_tree().change_scene_to_packed(load("res://system/showcases/typing/TypingShowcaseScreen.tscn"))
 ### System Showcases
+func _on_attribute_button_up():
+	await transition_into_color(Color.BLACK, 0.5)
+	get_tree().change_scene_to_packed(load("res://system/showcases/attribute/AttributeShowcaseScreen.tscn"))
 func _on_screen_2D_button_up():
 	await transition_into_color(Color.BLACK, 0.5)
 	get_tree().change_scene_to_packed(load("res://system/showcases/screen2D/Screen2DShowcaseScreen.tscn"))

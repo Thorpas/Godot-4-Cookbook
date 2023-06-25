@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddx1q65imerrq"]
+
+[ext_resource type="PackedScene" uid="uid://cscnvrw8os8dv" path="res://system/showcases/attribute/AbstractAttribute.tscn" id="1_eqhpm"]
+[ext_resource type="Script" path="res://system/showcases/attribute/FloatAttribute.gd" id="2_37wt8"]
+
+[node name="FloatAttribute" instance=ExtResource("1_eqhpm")]
+script = ExtResource("2_37wt8")
+baseMaximum = 999999.0
+baseMinimum = 0.0
+addendMaximum = 999999.0
+addendMinimum = 0.0

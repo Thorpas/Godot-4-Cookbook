@@ -1,0 +1,198 @@
+[gd_scene load_steps=5 format=3 uid="uid://bda0ysptr3qxj"]
+
+[ext_resource type="PackedScene" uid="uid://ose10q3meu8j" path="res://system/ShowcaseScreen.tscn" id="1_oi2g5"]
+[ext_resource type="Script" path="res://system/showcases/attribute/AttributeShowcaseScreen.gd" id="2_whcjk"]
+[ext_resource type="PackedScene" uid="uid://ddx1q65imerrq" path="res://system/showcases/attribute/FloatAttribute.tscn" id="3_xx5kb"]
+[ext_resource type="PackedScene" uid="uid://bj3xxkekqeb5y" path="res://system/showcases/attribute/IntegerAttribute.tscn" id="4_j3a7a"]
+
+[node name="AttributeShowcaseScreen" instance=ExtResource("1_oi2g5")]
+script = ExtResource("2_whcjk")
+
+[node name="Title" parent="." index="0"]
+text = "[font_size=90]RPG Attribute[/font_size]"
+
+[node name="FloatAttribute" parent="." index="1" instance=ExtResource("3_xx5kb")]
+
+[node name="IntegerAttribute" parent="." index="2" instance=ExtResource("4_j3a7a")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Interface" index="0"]
+offset_left = 80.0
+offset_top = 135.0
+offset_right = 120.0
+offset_bottom = 175.0
+
+[node name="FormulaLabel" type="RichTextLabel" parent="Interface/VBoxContainer" index="0"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=45]Formula: (Base * Multiplier) + Addend = Value"
+fit_content = true
+
+[node name="FloatLabel" type="RichTextLabel" parent="Interface/VBoxContainer" index="1"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=45]Float Attribute"
+fit_content = true
+
+[node name="FloatHBox" type="HBoxContainer" parent="Interface/VBoxContainer" index="2"]
+layout_mode = 2
+
+[node name="BaseVBox" type="VBoxContainer" parent="Interface/VBoxContainer/FloatHBox" index="0"]
+layout_mode = 2
+
+[node name="FloatBasePlus" type="Button" parent="Interface/VBoxContainer/FloatHBox/BaseVBox" index="0"]
+layout_mode = 2
+text = "Base +0.1"
+
+[node name="FloatBaseLabel" type="RichTextLabel" parent="Interface/VBoxContainer/FloatHBox/BaseVBox" index="1"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=27]Base"
+fit_content = true
+
+[node name="FloatBaseMinus" type="Button" parent="Interface/VBoxContainer/FloatHBox/BaseVBox" index="2"]
+layout_mode = 2
+text = "Base -0.1"
+
+[node name="MultiplierVBox" type="VBoxContainer" parent="Interface/VBoxContainer/FloatHBox" index="1"]
+layout_mode = 2
+
+[node name="FloatMultiplierPlus" type="Button" parent="Interface/VBoxContainer/FloatHBox/MultiplierVBox" index="0"]
+layout_mode = 2
+text = "Multiplier +0.1"
+
+[node name="FloatMultiplierLabel" type="RichTextLabel" parent="Interface/VBoxContainer/FloatHBox/MultiplierVBox" index="1"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=27]Multiplier"
+fit_content = true
+
+[node name="FloatMultiplierMinus" type="Button" parent="Interface/VBoxContainer/FloatHBox/MultiplierVBox" index="2"]
+layout_mode = 2
+text = "Multiplier -0.1"
+
+[node name="AddendVBox" type="VBoxContainer" parent="Interface/VBoxContainer/FloatHBox" index="2"]
+layout_mode = 2
+
+[node name="FloatAddendPlus" type="Button" parent="Interface/VBoxContainer/FloatHBox/AddendVBox" index="0"]
+layout_mode = 2
+text = "Addend +0.1"
+
+[node name="FloatAddendLabel" type="RichTextLabel" parent="Interface/VBoxContainer/FloatHBox/AddendVBox" index="1"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=27]Addend"
+fit_content = true
+
+[node name="FloatAddendMinus" type="Button" parent="Interface/VBoxContainer/FloatHBox/AddendVBox" index="2"]
+layout_mode = 2
+text = "Addend -0.1"
+
+[node name="ValueVBox" type="VBoxContainer" parent="Interface/VBoxContainer/FloatHBox" index="3"]
+layout_mode = 2
+alignment = 1
+
+[node name="FloatValue" type="RichTextLabel" parent="Interface/VBoxContainer/FloatHBox/ValueVBox" index="0"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=27]Value"
+fit_content = true
+
+[node name="IntegerLabel" type="RichTextLabel" parent="Interface/VBoxContainer" index="3"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=45]Integer Attribute"
+fit_content = true
+
+[node name="IntegerHBox" type="HBoxContainer" parent="Interface/VBoxContainer" index="4"]
+layout_mode = 2
+
+[node name="BaseVBox" type="VBoxContainer" parent="Interface/VBoxContainer/IntegerHBox" index="0"]
+layout_mode = 2
+
+[node name="IntegerBasePlus" type="Button" parent="Interface/VBoxContainer/IntegerHBox/BaseVBox" index="0"]
+layout_mode = 2
+text = "Base +1"
+
+[node name="IntegerBaseLabel" type="RichTextLabel" parent="Interface/VBoxContainer/IntegerHBox/BaseVBox" index="1"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=27]Base"
+fit_content = true
+
+[node name="IntegerBaseMinus" type="Button" parent="Interface/VBoxContainer/IntegerHBox/BaseVBox" index="2"]
+layout_mode = 2
+text = "Base -1"
+
+[node name="MultiplierVBox" type="VBoxContainer" parent="Interface/VBoxContainer/IntegerHBox" index="1"]
+layout_mode = 2
+
+[node name="IntegerMultiplierPlus" type="Button" parent="Interface/VBoxContainer/IntegerHBox/MultiplierVBox" index="0"]
+layout_mode = 2
+text = "Multiplier +0.1"
+
+[node name="IntegerMultiplierLabel" type="RichTextLabel" parent="Interface/VBoxContainer/IntegerHBox/MultiplierVBox" index="1"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=27]Multiplier"
+fit_content = true
+
+[node name="IntegerMultiplierMinus" type="Button" parent="Interface/VBoxContainer/IntegerHBox/MultiplierVBox" index="2"]
+layout_mode = 2
+text = "Multiplier -0.1"
+
+[node name="AddendVBox" type="VBoxContainer" parent="Interface/VBoxContainer/IntegerHBox" index="2"]
+layout_mode = 2
+
+[node name="IntegerAddendPlus" type="Button" parent="Interface/VBoxContainer/IntegerHBox/AddendVBox" index="0"]
+layout_mode = 2
+text = "Addend +1"
+
+[node name="IntegerAddendLabel" type="RichTextLabel" parent="Interface/VBoxContainer/IntegerHBox/AddendVBox" index="1"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=27]Addend"
+fit_content = true
+
+[node name="IntegerAddendMinus" type="Button" parent="Interface/VBoxContainer/IntegerHBox/AddendVBox" index="2"]
+layout_mode = 2
+text = "Addend -1"
+
+[node name="ValueVBox" type="VBoxContainer" parent="Interface/VBoxContainer/IntegerHBox" index="3"]
+layout_mode = 2
+alignment = 1
+
+[node name="IntegerValue" type="RichTextLabel" parent="Interface/VBoxContainer/IntegerHBox/ValueVBox" index="0"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=27]Value"
+fit_content = true
+
+[node name="ConstraintsLabel" type="RichTextLabel" parent="Interface/VBoxContainer" index="5"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=45]Constraints[/font_size]
+[font_size=27]Constraints can be set for the formula-variables and the value itself.  The constraints do not prohibit setting the variables higher or lower to allow for correct manipulation, but restrain the variables used in calculation.
+Minimum: 0
+Maximum: 999999[/font_size]"
+fit_content = true
+
+[connection signal="button_up" from="Interface/VBoxContainer/FloatHBox/BaseVBox/FloatBasePlus" to="." method="_on_float_base_plus_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/FloatHBox/BaseVBox/FloatBaseMinus" to="." method="_on_float_base_minus_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/FloatHBox/MultiplierVBox/FloatMultiplierPlus" to="." method="_on_float_multiplier_plus_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/FloatHBox/MultiplierVBox/FloatMultiplierMinus" to="." method="_on_float_multiplier_minus_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/FloatHBox/AddendVBox/FloatAddendPlus" to="." method="_on_float_addend_plus_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/FloatHBox/AddendVBox/FloatAddendMinus" to="." method="_on_float_addend_minus_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/IntegerHBox/BaseVBox/IntegerBasePlus" to="." method="_on_integer_base_plus_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/IntegerHBox/BaseVBox/IntegerBaseMinus" to="." method="_on_integer_base_minus_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/IntegerHBox/MultiplierVBox/IntegerMultiplierPlus" to="." method="_on_integer_multiplier_plus_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/IntegerHBox/MultiplierVBox/IntegerMultiplierMinus" to="." method="_on_integer_multiplier_minus_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/IntegerHBox/AddendVBox/IntegerAddendPlus" to="." method="_on_integer_addend_plus_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/IntegerHBox/AddendVBox/IntegerAddendMinus" to="." method="_on_integer_addend_minus_button_up"]

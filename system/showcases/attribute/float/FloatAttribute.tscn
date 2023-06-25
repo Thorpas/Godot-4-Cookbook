@@ -5,7 +5,7 @@
 
 [node name="FloatAttribute" instance=ExtResource("1_xaelq")]
 script = ExtResource("2_gmo7t")
-baseMaximum = 999999.0
-baseMinimum = 0.0
+multiplicantMaximum = 999999.0
+multiplicantMinimum = 0.0
 addendMaximum = 999999.0
 addendMinimum = 0.0

@@ -4,15 +4,15 @@ class_name IntegerAttribute
 # Variables
 
 ## Attribute
-### Base
-var _base:int = 0
+### Multiplicant
+var _multiplicant:int = 0
 var _addend:int = 0
 ### Constraints
-@export_category("Base Constraints")
+@export_category("Multiplicant Constraints")
 ## Upper limit of the multiplicant used in calculations.
-@export var baseMaximum:int = 999999
+@export var multiplicantMaximum:int = 999999
 ## Lower limit of the multiplicant used in calculations.
-@export var baseMinimum:int = 0
+@export var multiplicantMinimum:int = 0
 @export_category("Addend Constraints")
 ## Upper limit of the addend used in calculations.
 @export var addendMaximum:int = 999999
@@ -23,34 +23,34 @@ var _addend:int = 0
 
 ## Godot
 func _ready():
-	assert(baseMinimum <= baseMaximum, "Impossible Base Constraints!")
+	assert(multiplicantMinimum <= multiplicantMaximum, "Impossible Base Constraints!")
 	assert(addendMinimum <= addendMaximum, "Impossible Addend Constraints!")
 
 ## Attribute
-func _initialize_integer_attribute(base:int, multiplier:float, addend:int):
-	set_base(base)
+func _initialize_integer_attribute(multiplicant:int, multiplier:float, addend:int):
+	set_multiplicant(multiplicant)
 	set_multiplier(multiplier)
 	set_addend(addend)
 
 ## Value
 func get_value()->int:
-	var _value = int(_calculate_value(get_base(), get_multiplier(), get_addend()))
+	var _value = int(_calculate_value(get_multiplicant(), get_multiplier(), get_addend()))
 	if _value < valueMinimum:
 		_value = valueMinimum
 	elif _value > valueMaximum:
 		_value = valueMaximum
 	return _value
-### Base
-func set_base(base:int):
-	_base = base
-func edit_base(value:int):
-	_base += value
-func get_base()->int:
-	if _base < baseMinimum:
-		return baseMinimum
-	elif _base > baseMaximum:
-		return baseMaximum
-	return _base
+### Multiplicant
+func set_multiplicant(multiplicant:int):
+	_multiplicant = multiplicant
+func edit_multiplicant(value:int):
+	_multiplicant += value
+func get_multiplicant()->int:
+	if _multiplicant < multiplicantMinimum:
+		return multiplicantMinimum
+	elif _multiplicant > multiplicantMaximum:
+		return multiplicantMaximum
+	return _multiplicant
 ### Addend
 func set_addend(addend:int):
 	_addend = addend

@@ -5,7 +5,7 @@
 
 [node name="IntegerAttribute" instance=ExtResource("1_ie5r8")]
 script = ExtResource("2_dvd8p")
-baseMaximum = 999999
-baseMinimum = 0
+multiplicantMaximum = 999999
+multiplicantMinimum = 0
 addendMaximum = 999999
 addendMinimum = 0

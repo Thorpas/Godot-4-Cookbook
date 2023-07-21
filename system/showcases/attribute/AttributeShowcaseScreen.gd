@@ -24,11 +24,17 @@ func _on_float_multiplicant_plus_button_up():
 func _on_float_multiplicant_minus_button_up():
 	_float.edit_multiplicant(-0.1)
 	_update_float_labels()
-func _on_float_multiplier_plus_button_up():
-	_float.edit_multiplier(+0.1)
+func _on_float_multiplier_up_plus_button_up():
+	_float.append_multiplier(1.1)
 	_update_float_labels()
-func _on_float_multiplier_minus_button_up():
-	_float.edit_multiplier(-0.1)
+func _on_float_multiplier_up_minus_button_up():
+	_float.remove_multiplier(1.1)
+	_update_float_labels()
+func _on_float_multiplier_down_plus_button_up():
+	_float.append_multiplier(0.9)
+	_update_float_labels()
+func _on_float_multiplier_down_minus_button_up():
+	_float.remove_multiplier(0.9)
 	_update_float_labels()
 func _on_float_addend_plus_button_up():
 	_float.edit_addend(+0.1)
@@ -48,11 +54,17 @@ func _on_integer_multiplicant_plus_button_up():
 func _on_integer_multiplicant_minus_button_up():
 	_integer.edit_multiplicant(-1)
 	_update_integer_labels()
-func _on_integer_multiplier_plus_button_up():
-	_integer.edit_multiplier(+0.1)
+func _on_integer_multiplier_up_plus_button_up():
+	_integer.append_multiplier(1.1)
 	_update_integer_labels()
-func _on_integer_multiplier_minus_button_up():
-	_integer.edit_multiplier(-0.1)
+func _on_integer_multiplier_up_minus_button_up():
+	_integer.remove_multiplier(1.1)
+	_update_integer_labels()
+func _on_integer_multiplier_down_plus_button_up():
+	_integer.append_multiplier(0.9)
+	_update_integer_labels()
+func _on_integer_multiplier_down_minus_button_up():
+	_integer.remove_multiplier(0.9)
 	_update_integer_labels()
 func _on_integer_addend_plus_button_up():
 	_integer.edit_addend(+1)

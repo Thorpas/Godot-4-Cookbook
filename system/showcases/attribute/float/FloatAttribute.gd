@@ -1,64 +1,54 @@
-extends AbstractAttribute
+extends Node
 class_name FloatAttribute
 
 # Variables
-
-## Attribute
-### Multiplicant
-var _multiplicant:float = 0.0
+@export var valueMinimum:float = 0.1
+@export var valueMaximum:float = 100.0
+var _multiplicant:float = 1.0
+@export var multiplicantMinimum:float = 0.01
+@export var multiplicantMaximum:float = 10.0
+var _multiplier:float = 1.0
+@export var multiplierMinimum:float = 0.01
+@export var multiplierMaximum:float = 10.0
+var _multipliers:Array = []
 var _addend:float = 0.0
-### Constraints
-@export_category("Base Constraints")
-## Upper limit of the multiplicant used in calculations.
-@export var multiplicantMaximum:float = 999999.0
-## Lower limit of the multiplicant used in calculations.
-@export var multiplicantMinimum:float = 0.0
-@export_category("Addend Constraints")
-## Upper limit of the addend used in calculations.
-@export var addendMaximum:float = 999999.0
-## Lower limit of the addend used in calculations.
 @export var addendMinimum:float = 0.0
+@export var addendMaximum:float = 10.0
 
 # Functions
 
-## Godot
-func _ready():
-	assert(multiplicantMinimum <= multiplicantMaximum, "Impossible Base Constraints!")
-	assert(addendMinimum <= addendMaximum, "Impossible Addend Constraints!")
-
 ## Attribute
-func _initialize_integer_attribute(multiplicant:float, multiplier:float, addend:float):
-	set_multiplicant(multiplicant)
-	set_multiplier(multiplier)
-	set_addend(addend)
-
-## Value
-func get_value()->float:
-	var _value = _calculate_value(get_multiplicant(), get_multiplier(), get_addend())
-	if _value < valueMinimum:
-		_value = valueMinimum
-	elif _value > valueMaximum:
-		_value = valueMaximum
-	return _value
-### Base
-func set_multiplicant(multiplicant:float):
+func initiliaze_float_attribute(multiplicant:float, multiplier:float, addend:float):
 	_multiplicant = multiplicant
+	_multiplier = multiplier
+	_addend = addend
+func get_value()->float:
+	return minf(maxf(_calculate_value(), valueMinimum), valueMaximum)
+func _calculate_value()->float:
+	return (get_multiplier() * get_multiplicant()) + get_addend()
+
+## Multiplicant
+func get_multiplicant()->float:
+	return minf(maxf(_multiplicant, multiplicantMinimum), multiplicantMaximum)
 func edit_multiplicant(value:float):
 	_multiplicant += value
-func get_multiplicant()->float:
-	if _multiplicant < multiplicantMinimum:
-		return multiplicantMinimum
-	elif _multiplicant > multiplicantMaximum:
-		return multiplicantMaximum
-	return _multiplicant
-### Addend
-func set_addend(addend:float):
-	_addend = addend
+
+## Multiplier
+func get_multiplier()->float:
+	return minf(maxf(_multiplier, multiplierMinimum), multiplierMaximum)
+func append_multiplier(value:float):
+	_multipliers.append(value)
+	_calculate_multiplier()
+func remove_multiplier(value:float):
+	_multipliers.erase(value)
+	_calculate_multiplier()
+func _calculate_multiplier():
+	_multiplier = 1.0
+	for _value in _multipliers:
+		_multiplier *= _value
+
+## Addend
+func get_addend()->float:
+	return minf(maxf(_addend, addendMinimum), addendMaximum)
 func edit_addend(value:float):
 	_addend += value
-func get_addend()->float:
-	if _addend < addendMinimum:
-		return addendMinimum
-	elif _addend > addendMaximum:
-		return addendMaximum
-	return _addend

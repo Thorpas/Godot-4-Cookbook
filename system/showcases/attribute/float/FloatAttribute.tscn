@@ -1,11 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddx1q65imerrq"]
+[gd_scene load_steps=2 format=3 uid="uid://y6p2fdibepw3"]
 
-[ext_resource type="PackedScene" uid="uid://cscnvrw8os8dv" path="res://system/showcases/attribute/AbstractAttribute.tscn" id="1_xaelq"]
-[ext_resource type="Script" path="res://system/showcases/attribute/float/FloatAttribute.gd" id="2_gmo7t"]
+[ext_resource type="Script" path="res://system/showcases/attribute/float/FloatAttribute.gd" id="1_4ubvl"]
 
-[node name="FloatAttribute" instance=ExtResource("1_xaelq")]
-script = ExtResource("2_gmo7t")
-multiplicantMaximum = 999999.0
-multiplicantMinimum = 0.0
-addendMaximum = 999999.0
-addendMinimum = 0.0
+[node name="FloatAttribute" type="Node"]
+script = ExtResource("1_4ubvl")

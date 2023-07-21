@@ -14,6 +14,7 @@ offset_bottom = 124.0
 bbcode_enabled = true
 text = "[font_size=90]Title[/font_size]"
 fit_content = true
+scroll_active = false
 
 [node name="Return" type="Button" parent="Interface" index="0"]
 custom_minimum_size = Vector2(160, 90)

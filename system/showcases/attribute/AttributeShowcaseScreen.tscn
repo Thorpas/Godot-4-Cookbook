@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://ose10q3meu8j" path="res://system/ShowcaseScreen.tscn" id="1_oi2g5"]
 [ext_resource type="Script" path="res://system/showcases/attribute/AttributeShowcaseScreen.gd" id="2_whcjk"]
-[ext_resource type="PackedScene" uid="uid://ddx1q65imerrq" path="res://system/showcases/attribute/float/FloatAttribute.tscn" id="3_g57n7"]
-[ext_resource type="PackedScene" uid="uid://bj3xxkekqeb5y" path="res://system/showcases/attribute/integer/IntegerAttribute.tscn" id="4_4i3o2"]
+[ext_resource type="PackedScene" uid="uid://y6p2fdibepw3" path="res://system/showcases/attribute/float/FloatAttribute.tscn" id="3_g57n7"]
+[ext_resource type="PackedScene" uid="uid://dapw42c2xcasm" path="res://system/showcases/attribute/integer/IntegerAttribute.tscn" id="4_4i3o2"]
 
 [node name="AttributeShowcaseScreen" instance=ExtResource("1_oi2g5")]
 script = ExtResource("2_whcjk")
@@ -57,9 +57,18 @@ text = "Multiplicant -0.1"
 [node name="MultiplierVBox" type="VBoxContainer" parent="Interface/VBoxContainer/FloatHBox" index="1"]
 layout_mode = 2
 
-[node name="FloatMultiplierPlus" type="Button" parent="Interface/VBoxContainer/FloatHBox/MultiplierVBox" index="0"]
+[node name="Up" type="HBoxContainer" parent="Interface/VBoxContainer/FloatHBox/MultiplierVBox" index="0"]
 layout_mode = 2
-text = "Multiplier +0.1"
+
+[node name="FloatMultiplierUpPlus" type="Button" parent="Interface/VBoxContainer/FloatHBox/MultiplierVBox/Up" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Multiplier *1.1"
+
+[node name="FloatMultiplierUpMinus" type="Button" parent="Interface/VBoxContainer/FloatHBox/MultiplierVBox/Up" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Multiplier /1.1"
 
 [node name="FloatMultiplierLabel" type="RichTextLabel" parent="Interface/VBoxContainer/FloatHBox/MultiplierVBox" index="1"]
 custom_minimum_size = Vector2(320, 0)
@@ -68,9 +77,18 @@ bbcode_enabled = true
 text = "[center][font_size=27]Multiplier"
 fit_content = true
 
-[node name="FloatMultiplierMinus" type="Button" parent="Interface/VBoxContainer/FloatHBox/MultiplierVBox" index="2"]
+[node name="Down" type="HBoxContainer" parent="Interface/VBoxContainer/FloatHBox/MultiplierVBox" index="2"]
 layout_mode = 2
-text = "Multiplier -0.1"
+
+[node name="FloatMultiplierDownPlus" type="Button" parent="Interface/VBoxContainer/FloatHBox/MultiplierVBox/Down" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Multiplier *0.9"
+
+[node name="FloatMultiplierDownMinus" type="Button" parent="Interface/VBoxContainer/FloatHBox/MultiplierVBox/Down" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Multiplier /0.9"
 
 [node name="AddendVBox" type="VBoxContainer" parent="Interface/VBoxContainer/FloatHBox" index="2"]
 layout_mode = 2
@@ -131,9 +149,18 @@ text = "Multiplicant -1"
 [node name="MultiplierVBox" type="VBoxContainer" parent="Interface/VBoxContainer/IntegerHBox" index="1"]
 layout_mode = 2
 
-[node name="IntegerMultiplierPlus" type="Button" parent="Interface/VBoxContainer/IntegerHBox/MultiplierVBox" index="0"]
+[node name="Up" type="HBoxContainer" parent="Interface/VBoxContainer/IntegerHBox/MultiplierVBox" index="0"]
 layout_mode = 2
-text = "Multiplier +0.1"
+
+[node name="IntegerMultiplierUpPlus" type="Button" parent="Interface/VBoxContainer/IntegerHBox/MultiplierVBox/Up" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Multiplier *1.1"
+
+[node name="IntegerMultiplierUpMinus" type="Button" parent="Interface/VBoxContainer/IntegerHBox/MultiplierVBox/Up" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Multiplier /1.1"
 
 [node name="IntegerMultiplierLabel" type="RichTextLabel" parent="Interface/VBoxContainer/IntegerHBox/MultiplierVBox" index="1"]
 custom_minimum_size = Vector2(320, 0)
@@ -142,9 +169,18 @@ bbcode_enabled = true
 text = "[center][font_size=27]Multiplier"
 fit_content = true
 
-[node name="IntegerMultiplierMinus" type="Button" parent="Interface/VBoxContainer/IntegerHBox/MultiplierVBox" index="2"]
+[node name="Down" type="HBoxContainer" parent="Interface/VBoxContainer/IntegerHBox/MultiplierVBox" index="2"]
 layout_mode = 2
-text = "Multiplier -0.1"
+
+[node name="IntegerMultiplierDownPlus" type="Button" parent="Interface/VBoxContainer/IntegerHBox/MultiplierVBox/Down" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Multiplier *0.9"
+
+[node name="IntegerMultiplierDownMinus" type="Button" parent="Interface/VBoxContainer/IntegerHBox/MultiplierVBox/Down" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Multiplier /0.9"
 
 [node name="AddendVBox" type="VBoxContainer" parent="Interface/VBoxContainer/IntegerHBox" index="2"]
 layout_mode = 2
@@ -184,15 +220,19 @@ Minimum: 0
 Maximum: 999999[/font_size]"
 fit_content = true
 
-[connection signal="button_up" from="Interface/VBoxContainer/FloatHBox/MultiplicantVBox/FloatMultiplicantPlus" to="." method="_on_float_base_plus_button_up"]
-[connection signal="button_up" from="Interface/VBoxContainer/FloatHBox/MultiplicantVBox/FloatMultiplicantMinus" to="." method="_on_float_base_minus_button_up"]
-[connection signal="button_up" from="Interface/VBoxContainer/FloatHBox/MultiplierVBox/FloatMultiplierPlus" to="." method="_on_float_multiplier_plus_button_up"]
-[connection signal="button_up" from="Interface/VBoxContainer/FloatHBox/MultiplierVBox/FloatMultiplierMinus" to="." method="_on_float_multiplier_minus_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/FloatHBox/MultiplicantVBox/FloatMultiplicantPlus" to="." method="_on_float_multiplicant_plus_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/FloatHBox/MultiplicantVBox/FloatMultiplicantMinus" to="." method="_on_float_multiplicant_minus_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/FloatHBox/MultiplierVBox/Up/FloatMultiplierUpPlus" to="." method="_on_float_multiplier_up_plus_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/FloatHBox/MultiplierVBox/Up/FloatMultiplierUpMinus" to="." method="_on_float_multiplier_up_minus_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/FloatHBox/MultiplierVBox/Down/FloatMultiplierDownPlus" to="." method="_on_float_multiplier_down_plus_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/FloatHBox/MultiplierVBox/Down/FloatMultiplierDownMinus" to="." method="_on_float_multiplier_down_minus_button_up"]
 [connection signal="button_up" from="Interface/VBoxContainer/FloatHBox/AddendVBox/FloatAddendPlus" to="." method="_on_float_addend_plus_button_up"]
 [connection signal="button_up" from="Interface/VBoxContainer/FloatHBox/AddendVBox/FloatAddendMinus" to="." method="_on_float_addend_minus_button_up"]
-[connection signal="button_up" from="Interface/VBoxContainer/IntegerHBox/MultiplicantVBox/IntegerMultiplicantPlus" to="." method="_on_integer_base_plus_button_up"]
-[connection signal="button_up" from="Interface/VBoxContainer/IntegerHBox/MultiplicantVBox/IntegerMultiplicantMinus" to="." method="_on_integer_base_minus_button_up"]
-[connection signal="button_up" from="Interface/VBoxContainer/IntegerHBox/MultiplierVBox/IntegerMultiplierPlus" to="." method="_on_integer_multiplier_plus_button_up"]
-[connection signal="button_up" from="Interface/VBoxContainer/IntegerHBox/MultiplierVBox/IntegerMultiplierMinus" to="." method="_on_integer_multiplier_minus_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/IntegerHBox/MultiplicantVBox/IntegerMultiplicantPlus" to="." method="_on_integer_multiplicant_plus_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/IntegerHBox/MultiplicantVBox/IntegerMultiplicantMinus" to="." method="_on_integer_multiplicant_minus_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/IntegerHBox/MultiplierVBox/Up/IntegerMultiplierUpPlus" to="." method="_on_integer_multiplier_up_plus_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/IntegerHBox/MultiplierVBox/Up/IntegerMultiplierUpMinus" to="." method="_on_integer_multiplier_up_minus_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/IntegerHBox/MultiplierVBox/Down/IntegerMultiplierDownPlus" to="." method="_on_integer_multiplier_down_plus_button_up"]
+[connection signal="button_up" from="Interface/VBoxContainer/IntegerHBox/MultiplierVBox/Down/IntegerMultiplierDownMinus" to="." method="_on_integer_multiplier_down_minus_button_up"]
 [connection signal="button_up" from="Interface/VBoxContainer/IntegerHBox/AddendVBox/IntegerAddendPlus" to="." method="_on_integer_addend_plus_button_up"]
 [connection signal="button_up" from="Interface/VBoxContainer/IntegerHBox/AddendVBox/IntegerAddendMinus" to="." method="_on_integer_addend_minus_button_up"]

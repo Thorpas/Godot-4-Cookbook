@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cscnvrw8os8dv"]
-
-[ext_resource type="Script" path="res://system/showcases/attribute/AbstractAttribute.gd" id="1_c1441"]
-
-[node name="AbstractAttribute" type="Node"]
-script = ExtResource("1_c1441")
